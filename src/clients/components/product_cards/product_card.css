@@ -1,0 +1,9 @@
+.product_card_items {
+    padding: 10px;
+    background-color: #f8f9fa;
+    box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+    border: 2px solid #fff;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }

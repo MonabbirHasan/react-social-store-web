@@ -1,0 +1,10 @@
+.seller_dashboard_header {
+  border-bottom: 3px solid #fff;
+}
+.seller_notify_menu_body {
+  height: 400px;
+  overflow: scroll;
+}
+.seller_notify_menu_body::-webkit-scrollbar {
+  width: 0;
+}

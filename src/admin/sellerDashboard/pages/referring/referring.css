@@ -1,0 +1,17 @@
+.referring_pages {
+  background-color: #fff5f8;
+  padding: 40px 0;
+}
+.referring_pages .referring_wrapper {
+  padding: 10px;
+  background-color: #fff5f8;
+}
+.referring_pages .referring_wrapper .referring_form {
+  padding: 20px 30px;
+  background-color: #eee;
+  width: 50%;
+  border-radius: 5px;
+  justify-content: center;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 3px solid #fff;
+}

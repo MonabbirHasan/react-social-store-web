@@ -1,0 +1,12 @@
+export { default as SellerProfileView } from "./seller_profile/SellerProfile";
+export { default as SignUp } from "../authentication/signup/Signup";
+export { default as SignIn } from "../authentication/login/Login";
+export { default as SmmPanel } from "./smm_panel/SmmPanel";
+export { default as Products } from "./products/Products";
+export { default as Webshop } from "./web_shop/WebShop";
+export { default as Contact } from "./contact/Contact";
+export { default as Courses } from "./courses/Courses";
+export { default as Service } from "./service/Service";
+export { default as About } from "./about/About";
+export { default as Blogs } from "./blogs/Blogs";
+export { default as Home } from "./home/Home";

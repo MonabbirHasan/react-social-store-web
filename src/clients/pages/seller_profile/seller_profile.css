@@ -1,0 +1,15 @@
+.seller_profile {
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+.seller_profile {
+  padding: 50px 0;
+}
+.seller_profile .seller_profile_view_left {
+  padding: 20px;
+  background-color: #f8f9fa;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 2px solid #fff;
+  border-radius: 5px;
+}

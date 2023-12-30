@@ -1,0 +1,17 @@
+.product_pages {
+  padding: 60px 0;
+}
+.product_pages .product_filters {
+  padding: 40px 0;
+}
+.product_pages .product_filter_wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 3px solid #fff;
+  border-radius: 1px;
+  text-transform: capitalize;
+}
