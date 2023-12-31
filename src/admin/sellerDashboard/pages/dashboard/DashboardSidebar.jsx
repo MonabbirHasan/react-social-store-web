@@ -22,12 +22,22 @@ import {
   Settings,
   Store,
 } from "@mui/icons-material";
-import SellerProfileView from "../../../../clients/pages/seller_profile/SellerProfile";
-import BillingPayments from "../billing_payments/BillingPayments";
-import SellerSettings from "../settings/SellerSettings";
-import Referring from "../referring/Referring";
-import SellerDashboard from "./Dashboard";
-import Earnings from "../earnings/Earnings";
+// import SellerProfileView from "../../../../clients/pages/seller_profile/SellerProfile";
+// import BillingPayments from "../billing_payments/BillingPayments";
+// import SellerSettings from "../settings/SellerSettings";
+// import Referring from "../referring/Referring";
+// import Earnings from "../earnings/Earnings";
+// import SellerDashboard from "./Dashboard";
+import {
+  SellerDashboard,
+  Earnings,
+  ProductListing,
+  SellerProfileView,
+  BillingPayments,
+  SellerSettings,
+  Referring,
+  Orders,
+} from "../index";
 const DashboardSidebar = () => {
   const [OpenMyBusinessMenu, setOpenMyBusinessMenu] = useState(false);
   const [ShowSellerSidebarMenu, setShowSellerSidebarMenu] = useState(false);
@@ -93,6 +103,10 @@ const DashboardSidebar = () => {
         <BillingPayments openEarnings={HandleOpenEarningsPages} />
       ) : SellerDashboardPage === "earnings" ? (
         <Earnings />
+      ) : SellerDashboardPage === "manage_listing" ? (
+        <ProductListing />
+      ) : SellerDashboardPage === "orders" ? (
+        <Orders />
       ) : (
         "page not found!"
       )}
@@ -138,7 +152,13 @@ const DashboardSidebar = () => {
             </ListItem>
             <Collapse in={OpenMyBusinessMenu} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  onClick={() => {
+                    setSellerDashboardPage("orders");
+                    save_states("orders");
+                  }}
+                >
                   <ListItemIcon>
                     <LocalShippingOutlined />
                   </ListItemIcon>
@@ -149,7 +169,13 @@ const DashboardSidebar = () => {
                 </ListItemButton>
               </List>
               <ListItem disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  onClick={() => {
+                    setSellerDashboardPage("manage_listing");
+                    save_states("manage_listing");
+                  }}
+                >
                   <ListItemIcon>
                     <FeaturedPlayList />
                   </ListItemIcon>
@@ -157,7 +183,13 @@ const DashboardSidebar = () => {
                 </ListItemButton>
               </ListItem>
               <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  onClick={() => {
+                    setSellerDashboardPage("earnings");
+                    save_states("earnings");
+                  }}
+                >
                   <ListItemIcon>
                     <MonetizationOn />
                   </ListItemIcon>

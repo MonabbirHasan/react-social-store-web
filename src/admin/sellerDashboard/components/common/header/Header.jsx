@@ -18,6 +18,7 @@ import {
   Button,
   Divider,
   IconButton,
+  List,
   MenuItem,
   Popover,
   Stack,
@@ -28,7 +29,10 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useNavigate } from "react-router-dom";
 const Header = (props) => {
+  const navigate = useNavigate();
   const [ShowSellerNotifyMenu, setShowSellerNotifyMenu] = useState(false);
   const handleCloseSellerNotifyMenu = () => setShowSellerNotifyMenu(false);
   const handleShowSellerNotifyMenu = () => setShowSellerNotifyMenu(true);
@@ -73,12 +77,17 @@ const Header = (props) => {
   const openBillings = () => {
     props.openBillings();
   };
-
+  /*******************************
+   * HANDLE SHOW LANGUAGE MODAL
+   *******************************/
+  const [ShowLanguageModal, setShowLanguageModal] = useState(false);
+  const handleCloseLanguageModal = () => setShowLanguageModal(false);
+  const handleShowLanguageModal = () => setShowLanguageModal(true);
   return (
     <header className="seller_dashboard_header">
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             <IconButton onClick={ShowSellerDashboardSidebar}>
               <Apps />
             </IconButton>
@@ -228,7 +237,12 @@ const Header = (props) => {
                       </Box>
                     </Stack>
                     <Box pt={2}>
-                      <Button fullWidth size="small" variant="outlined">
+                      <Button
+                        onClick={() => navigate("/", { replace: true })}
+                        fullWidth
+                        size="small"
+                        variant="outlined"
+                      >
                         switch to buyer
                       </Button>
                     </Box>
@@ -273,7 +287,11 @@ const Header = (props) => {
                         </Typography>
                         <Typography>Billing and payments</Typography>
                       </MenuItem>
-                      <MenuItem disableGutters sx={{ p: 1 }}>
+                      <MenuItem
+                        disableGutters
+                        sx={{ p: 1 }}
+                        onClick={handleShowLanguageModal}
+                      >
                         <Typography marginRight={1}>
                           <Language />
                         </Typography>
@@ -293,6 +311,65 @@ const Header = (props) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      {/*******************************
+       * LANGUAGES SELECTIONS MODAL
+       ********************************/}
+      <Modal show={ShowLanguageModal} onHide={handleCloseLanguageModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Select Language</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <List>
+            <MenuItem>
+              <LazyLoadImage
+                style={{ width: "30px" }}
+                src="https://flagsapi.com/BD/shiny/64.png"
+              />
+              <Typography p={1}>Bangladesh</Typography>
+            </MenuItem>
+            <MenuItem>
+              <LazyLoadImage
+                style={{ width: "30px" }}
+                src="https://flagsapi.com/IN/shiny/64.png"
+              />
+              <Typography p={1}>India</Typography>
+            </MenuItem>
+            <MenuItem>
+              <LazyLoadImage
+                style={{ width: "30px" }}
+                src="https://flagsapi.com/PK/shiny/64.png"
+              />
+              <Typography p={1}>Pakistan</Typography>
+            </MenuItem>
+            <MenuItem>
+              <LazyLoadImage
+                style={{ width: "30px" }}
+                src="https://flagsapi.com/US/shiny/64.png"
+              />
+              <Typography p={1}>Unitate States</Typography>
+            </MenuItem>
+            <MenuItem>
+              <LazyLoadImage
+                style={{ width: "30px" }}
+                src="https://flagsapi.com/SA/shiny/64.png"
+              />
+              <Typography p={1}>Saudi Arabia</Typography>
+            </MenuItem>
+          </List>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="outlined" onClick={handleCloseLanguageModal}>
+            Close
+          </Button>
+          <Button
+            sx={{ ml: 3 }}
+            variant="outlined"
+            onClick={handleCloseLanguageModal}
+          >
+            Save language
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </header>
   );
 };

@@ -1,20 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import ShopCard from "../../components/shop_card/ShopCard";
-import { shopData } from "../../../utils/shopData";
-import Pagination from "react-bootstrap/Pagination";
-import InputGroup from "react-bootstrap/InputGroup";
-import webshop from "../../../assets/img/webshop.jpg";
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
+import webshop from "../../../assets/img/webshop.jpg";
+import InputGroup from "react-bootstrap/InputGroup";
+import Pagination from "react-bootstrap/Pagination";
+import { shopData } from "../../../utils/shopData";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Search } from "@mui/icons-material";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import "./web_shop.css";
-import Carousel from "react-multi-carousel";
 const WebShop = () => {
   let [Filter_GoogleAdsVerified, setGoogleAdsVerified] = useState("");
   let [Filter_DomainHosting, setDomainHosting] = useState("");
@@ -22,10 +21,6 @@ const WebShop = () => {
   let [Filter_TechStack, setTechStack] = useState("");
   let [Filter_Category, setCategory] = useState("");
   let [Filter_Price, setPrice] = useState("");
-  let [Data_Loader, setLoader] = useState(false);
-  let [WebsiteData, setWebsiteData] = useState([]);
-  let [imgurl, setImgurl] = useState("");
-
   const DomainHosting = (eventKey, event) => {
     setDomainHosting(eventKey);
   };
@@ -78,30 +73,6 @@ const WebShop = () => {
       alert("Please Fiel The All Input");
     }
   }
-
-  useEffect(() => {
-    setLoader(true);
-    fetch("http://127.0.0.1:8000/api/access/web_shop", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setLoader(false);
-        setImgurl(data.imagePath);
-        localStorage.setItem("image_path", JSON.stringify(data.imagePath));
-        localStorage.setItem("website_shop_data", JSON.stringify(data));
-        setWebsiteData(data.data);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoader(false);
-      });
-  }, []);
-
   return (
     <>
       <Header />
@@ -109,10 +80,10 @@ const WebShop = () => {
         <div className="shop_page_banner">
           <LazyLoadImage src={webshop} />
         </div>
-        {/* <Alert severity="success" color="info">
-          This is a success alert — check it out!
-        </Alert> */}
         <div className="container">
+          {/*******************************
+           * PRODUCT FILTER SECTIONS HERE
+           ********************************/}
           <div className="shop_filter">
             <InputGroup className="mb-3">
               <Form.Control onChange={(e) => setWebSiteName(e.target.value)} />
@@ -202,6 +173,9 @@ const WebShop = () => {
               </Button>
             </InputGroup>
           </div>
+          {/*******************************
+           * PRODUCT SECTIONS HERE
+           ********************************/}
           <div className="shop_wrapper">
             {shopData.map((items) => (
               <ShopCard
@@ -213,10 +187,12 @@ const WebShop = () => {
                 gallery={items.gallery}
                 rating={3.5}
               />
-              
             ))}
           </div>
         </div>
+        {/*******************************
+         * PRODUCT PAGINATIONS HERE
+         ********************************/}
         <section className="paginations">
           <Pagination>
             <Pagination.Prev />

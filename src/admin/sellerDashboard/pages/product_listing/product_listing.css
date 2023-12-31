@@ -1,0 +1,13 @@
+.manage_listings {
+  padding: 50px 0;
+}
+.manage_listings .manage_listings_wrapper {
+  padding: 0;
+}
+.manage_listings .manage_listings_wrapper .product_listing_tab_panel {
+  padding: 10px;
+  background-color: #eee;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 2px solid #fff;
+}
