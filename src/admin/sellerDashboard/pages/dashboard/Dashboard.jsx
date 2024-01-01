@@ -1,12 +1,11 @@
 /* eslint-disable no-undef */
 import ProductCard from "../../../../clients/components/product_cards/ProductCard";
-import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Search, Sort } from "@mui/icons-material";
 import "./dashboard.css";
 import {
   Box,
   Button,
-  Chip,
   FormControl,
   FormLabel,
   MenuItem,
@@ -14,6 +13,7 @@ import {
   Stack,
   TextField,
   Pagination as MUIPaginations,
+  Chip,
 } from "@mui/material";
 const Dashboard = () => {
   const image_obj = [
@@ -117,21 +117,57 @@ const Dashboard = () => {
              * PRODUCT FILTER SECTION START HERE
              ***************************************/}
             <Stack className="product_short_filter_form">
-              <InputGroup>
-                <InputGroup.Text>subscriber</InputGroup.Text>
-                <Form.Control placeholder="from" />
-                <Form.Control placeholder="to" />
-              </InputGroup>
-              <InputGroup>
-                <InputGroup.Text>Price</InputGroup.Text>
-                <Form.Control placeholder="from" />
-                <Form.Control placeholder="to" />
-              </InputGroup>
-              <InputGroup>
-                <InputGroup.Text>Income</InputGroup.Text>
-                <Form.Control placeholder="from" />
-                <Form.Control placeholder="to" />
-              </InputGroup>
+              <FormControl style={{ display: "flex" }}>
+                <Chip label="Subscriber" />
+                <Box style={{ display: "flex" }}>
+                  <TextField
+                    sx={{ m: 1 }}
+                    label="from"
+                    variant="filled"
+                    size="small"
+                  />
+                  <TextField
+                    sx={{ m: 1 }}
+                    label="to"
+                    variant="filled"
+                    size="small"
+                  />
+                </Box>
+              </FormControl>
+              <FormControl style={{ display: "flex" }}>
+                <Chip label="Price" />
+                <Box style={{ display: "flex" }}>
+                  <TextField
+                    sx={{ m: 1 }}
+                    label="from"
+                    variant="filled"
+                    size="small"
+                  />
+                  <TextField
+                    sx={{ m: 1 }}
+                    label="to"
+                    variant="filled"
+                    size="small"
+                  />
+                </Box>
+              </FormControl>
+              <FormControl style={{ display: "flex" }}>
+                <Chip label="Income" />
+                <Box style={{ display: "flex" }}>
+                  <TextField
+                    sx={{ m: 1 }}
+                    label="from"
+                    variant="filled"
+                    size="small"
+                  />
+                  <TextField
+                    sx={{ m: 1 }}
+                    label="to"
+                    variant="filled"
+                    size="small"
+                  />
+                </Box>
+              </FormControl>
             </Stack>
             {/**************************************
              * PRODUCT SORTS SECTION START HERE

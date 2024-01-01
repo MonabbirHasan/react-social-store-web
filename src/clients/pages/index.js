@@ -1,4 +1,5 @@
 export { default as SellerProfileView } from "./seller_profile/SellerProfile";
+export { default as ServiceRequest } from "./service_request/ServiceReques";
 export { default as SignUp } from "../authentication/signup/Signup";
 export { default as SignIn } from "../authentication/login/Login";
 export { default as SmmPanel } from "./smm_panel/SmmPanel";

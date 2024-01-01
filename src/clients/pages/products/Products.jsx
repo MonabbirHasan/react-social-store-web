@@ -3,9 +3,7 @@ import Header from "../../components/common/header/Header";
 import {
   Col,
   Container,
-  Form,
   FormLabel,
-  InputGroup,
   Row,
 } from "react-bootstrap";
 import "../../../assets/css/responsive.css";
@@ -46,7 +44,45 @@ const Products = () => {
            * PRODUCT FILTER SECTION START HERE
            **************************************/}
           <div className="product_filters">
-            <div className="product_filter_wrapper">
+            <section className="product_filter_wrapper">
+              <Stack direction={"row"} py={3} spacing={2}>
+                <Box>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    sx={{ borderRadius: "30px" }}
+                  >
+                    facebook
+                  </Button>
+                </Box>
+                <Box>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    sx={{ borderRadius: "30px" }}
+                  >
+                    youtube
+                  </Button>
+                </Box>
+                <Box>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    sx={{ borderRadius: "30px" }}
+                  >
+                    instagram
+                  </Button>
+                </Box>
+                <Box>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    sx={{ borderRadius: "30px" }}
+                  >
+                    telegram
+                  </Button>
+                </Box>
+              </Stack>
               <div className="product_filter_form">
                 <FormControl fullWidth>
                   <FormLabel>search by name</FormLabel>
@@ -88,38 +124,99 @@ const Products = () => {
                * PRODUCT FILTER SECTION START HERE
                ***************************************/}
               <Stack className="product_short_filter_form">
-                <InputGroup>
-                  <InputGroup.Text>subscriber</InputGroup.Text>
-                  <Form.Control placeholder="from" />
-                  <Form.Control placeholder="to" />
-                </InputGroup>
-                <InputGroup>
-                  <InputGroup.Text>Price</InputGroup.Text>
-                  <Form.Control placeholder="from" />
-                  <Form.Control placeholder="to" />
-                </InputGroup>
-                <InputGroup>
-                  <InputGroup.Text>Income</InputGroup.Text>
-                  <Form.Control placeholder="from" />
-                  <Form.Control placeholder="to" />
-                </InputGroup>
+                <FormControl style={{ display: "flex" }}>
+                  <Chip label="Subscriber" />
+                  <Box style={{ display: "flex" }}>
+                    <TextField
+                      sx={{ m: 1 }}
+                      label="from"
+                      variant="filled"
+                      size="small"
+                    />
+                    <TextField
+                      sx={{ m: 1 }}
+                      label="to"
+                      variant="filled"
+                      size="small"
+                    />
+                  </Box>
+                </FormControl>
+                <FormControl style={{ display: "flex" }}>
+                  <Chip label="Price" />
+                  <Box style={{ display: "flex" }}>
+                    <TextField
+                      sx={{ m: 1 }}
+                      label="from"
+                      variant="filled"
+                      size="small"
+                    />
+                    <TextField
+                      sx={{ m: 1 }}
+                      label="to"
+                      variant="filled"
+                      size="small"
+                    />
+                  </Box>
+                </FormControl>
+                <FormControl style={{ display: "flex" }}>
+                  <Chip label="Income" />
+                  <Box style={{ display: "flex" }}>
+                    <TextField
+                      sx={{ m: 1 }}
+                      label="from"
+                      variant="filled"
+                      size="small"
+                    />
+                    <TextField
+                      sx={{ m: 1 }}
+                      label="to"
+                      variant="filled"
+                      size="small"
+                    />
+                  </Box>
+                </FormControl>
               </Stack>
               {/**************************************
                * PRODUCT SORTS SECTION START HERE
                ***************************************/}
-              <Stack direction={"row"} pb={1} pt={3}>
+              <Stack direction={"row"} spacing={1} pb={1} pt={3}>
                 <Sort />
-                <Box display={"flex"} sx={{ textTransform: "capitalize" }}>
-                  <MenuItem>
-                    <Chip label="subscriber" />
-                  </MenuItem>
-                  <MenuItem>
-                    <Chip label="income" />
-                  </MenuItem>
-                  <MenuItem>
-                    <Chip label="price" />
-                  </MenuItem>
-                </Box>
+                <Button
+                  size="small"
+                  variant=""
+                  sx={{
+                    borderRadius: "30px",
+                    backgroundColor: "#eee",
+                    color: "gray",
+                    fontSize: "12px",
+                  }}
+                >
+                  subscriber
+                </Button>
+                <Button
+                  size="small"
+                  variant=""
+                  sx={{
+                    borderRadius: "30px",
+                    backgroundColor: "#eee",
+                    color: "gray",
+                    fontSize: "12px",
+                  }}
+                >
+                  income
+                </Button>
+                <Button
+                  size="small"
+                  variant=""
+                  sx={{
+                    borderRadius: "30px",
+                    backgroundColor: "#eee",
+                    color: "gray",
+                    fontSize: "12px",
+                  }}
+                >
+                  price
+                </Button>
               </Stack>
               <Box
                 sx={{
@@ -131,7 +228,7 @@ const Products = () => {
                   Search
                 </Button>
               </Box>
-            </div>
+            </section>
           </div>
           {/*********************************
            * PRODUCT SECTION START HERE

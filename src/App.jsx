@@ -26,6 +26,7 @@ import {
   SignUp,
   SignIn,
   SellerProfileView,
+  ServiceRequest
 } from "./clients/pages/index";
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/web_shop" element={<Webshop />} />
         <Route path="/products" element={<Products />} />
         <Route path="/seller_profile" element={<SellerProfileView />} />
+        <Route path="/service_request" element={<ServiceRequest />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
         {/*ADMIN DASHBOARD ROUTE START HERE*/}

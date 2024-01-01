@@ -20,7 +20,7 @@ const Service = () => {
             <PageTitle title={"Our services"} />
             <div className="service_item_box">
               {serviceData.map((item) => (
-                <NavLink key={item.id} to={"/services/request"}>
+                <NavLink key={item.id} to={"/service_request"}>
                   <div className="service_item">
                     <span>
                       <Image width="40" height="40" src={item.icon} />
