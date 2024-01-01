@@ -1,64 +1,83 @@
+/* eslint-disable no-unused-vars */
+import { Alert, Box, Tab, Tabs } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import {
+  Service_Title,
+  Instagram,
+  Telegram,
+  Whatsapp,
+  Facebook,
+  Youtube,
+  Website,
+  Twitter,
+  Gaming,
+  Application,
+} from "./index";
+import "./selling.css";
 const Selling = () => {
-  /***************************************
-   * GET YOUTUBE CHANNEL INFO
-   ***************************************/
-  function getYouTubeChannelInfo(apiKey, channelId) {
-    const apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${channelId}&key=${apiKey}`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.items && data.items.length > 0) {
-          const channelData = data.items[0];
-          const channelName = channelData.snippet.title;
-          const totalSubscribers = channelData.statistics.subscriberCount;
-          const totalVideos = channelData.statistics.videoCount;
-          console.log(
-            `Channel Name: ${channelName}, Subscribers: ${totalSubscribers}, Total Videos: ${totalVideos}`
-          );
-        } else {
-          console.log("Channel not found");
-        }
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }
-  function getChannelId(apiKey, channelName) {
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
-      channelName
-    )}&type=channel&key=${apiKey}`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.items && data.items.length > 0) {
-          const channelId = data.items[0].snippet.channelId;
-          console.log(`Channel ID: ${channelId}`);
-          // Now that you have the channel ID, you can fetch channel details using getYouTubeChannelInfo function from the previous examples.
-          getYouTubeChannelInfo(apiKey, channelId);
-        } else {
-          console.log("Channel not found");
-        }
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }
-  // Usage example
-  const apiKey = "AIzaSyD7E3_-cqtfayhdTkL_Gx5zWdsafDN9cYw";
-  const channelName = "https://www.youtube.com/@DRAGONWARRIORYT8080"; // Replace with the channel name
-  getChannelId(apiKey, channelName);
-
-  return <div>getChannelId</div>;
+  const [Tabsvalue, setTabsvalue] = useState(1);
+  const handleChange = (event, newValue) => {
+    setTabsvalue(newValue);
+    localStorage.setItem("social_service_states", JSON.stringify(newValue));
+  };
+  useEffect(() => {
+    const social_service_states = JSON.parse(
+      localStorage.getItem("social_service_states")
+    );
+    setTabsvalue(social_service_states);
+  }, []);
+  return (
+    <div className="product_menu_tabs">
+      <div className="menu_tabls_wrapper">
+        <div className="product_tabs">
+          <Service_Title title="CREATE NEW LISTING" />
+          <Box sx={{ width: "100%" }}>
+            <Tabs
+              value={Tabsvalue}
+              onChange={handleChange}
+              aria-label="wrapped label tabs example"
+            >
+              <Tab value={5} label="youtube" wrapped />
+              <Tab value={1} label="facebook" wrapped />
+              <Tab value={2} label="instagram" wrapped />
+              <Tab value={3} label="telegram" wrapped />
+              <Tab value={4} label="twitter" wrapped />
+              <Tab value={6} label="BGMI" wrapped />
+              <Tab value={7} label="Website" wrapped />
+              <Tab value={8} label="Whatsapp" wrapped />
+              <Tab value={9} label="Application" wrapped />
+            </Tabs>
+          </Box>
+        </div>
+        {/**********************************
+         *RANDER ALL TABS COMPONENTS
+         ***********************************/}
+        <div className="tabs_components">
+          {Tabsvalue === 1 ? (
+            <Facebook TabTitle={<Service_Title title="Facebook" />} />
+          ) : Tabsvalue === 2 ? (
+            <Instagram TabTitle={<Service_Title title="Instagram" />} />
+          ) : Tabsvalue === 3 ? (
+            <Telegram TabTitle={<Service_Title title="Telegram" />} />
+          ) : Tabsvalue === 4 ? (
+            <Twitter TabTitle={<Service_Title title="Twitter" />} />
+          ) : Tabsvalue === 5 ? (
+            <Youtube TabTitle={<Service_Title title="Youtube" />} />
+          ) : Tabsvalue === 6 ? (
+            <Gaming TabTitle={<Service_Title title="Gaming" />} />
+          ) : Tabsvalue === 7 ? (
+            <Website TabTitle={<Service_Title title="Website" />} />
+          ) : Tabsvalue === 8 ? (
+            <Whatsapp TabTitle={<Service_Title title="Whatsapp" />} />
+          ) : Tabsvalue === 9 ? (
+            <Application TabTitle={<Service_Title title="Application" />} />
+          ) : (
+            <Alert>tab not found</Alert>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Selling;

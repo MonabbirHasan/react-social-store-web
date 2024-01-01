@@ -18,16 +18,16 @@ import {
 const Dashboard = () => {
   const image_obj = [
     {
-      img: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290482973/original/8fad458c759af4a2d652d777c2cfd4d491d2c35e/create-website-banner-designs-and-amazon-product-design.jpg",
+      img: "https://images.nightcafe.studio/jobs/5DdUMvtbush0toMG9QJZ/5DdUMvtbush0toMG9QJZ--1--oqlr5.jpg?tr=w-1600,c-at_max",
     },
     {
-      img: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290482973/original/8fad458c759af4a2d652d777c2cfd4d491d2c35e/create-website-banner-designs-and-amazon-product-design.jpg",
+      img: "https://www.elegantthemes.com/blog/wp-content/uploads/2023/06/What-is-AI-1.jpg",
     },
     {
-      img: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290482973/original/8fad458c759af4a2d652d777c2cfd4d491d2c35e/create-website-banner-designs-and-amazon-product-design.jpg",
+      img: "https://www.infolopare.com/wp-content/uploads/2023/05/mfrack_realistic_photo_of_future_of_AI_6e0c2e40-d4f7-45ba-938c-6836abdb6af2.jpeg",
     },
     {
-      img: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290482973/original/8fad458c759af4a2d652d777c2cfd4d491d2c35e/create-website-banner-designs-and-amazon-product-design.jpg",
+      img: "https://www.claytoncountyregister.com/wp-content/uploads/2023/07/mfrack_realistic_photo_of_future_of_AI_programming_07b82711-2341-4b17-a148-42347c9afc9a.jpeg",
     },
   ];
   return (
@@ -38,6 +38,44 @@ const Dashboard = () => {
          **************************************/}
         <div className="product_filters">
           <section className="product_filter_wrapper">
+            <Stack direction={"row"} py={3} spacing={2}>
+              <Box>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  sx={{ borderRadius: "30px" }}
+                >
+                  facebook
+                </Button>
+              </Box>
+              <Box>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  sx={{ borderRadius: "30px" }}
+                >
+                  youtube
+                </Button>
+              </Box>
+              <Box>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  sx={{ borderRadius: "30px" }}
+                >
+                  instagram
+                </Button>
+              </Box>
+              <Box>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  sx={{ borderRadius: "30px" }}
+                >
+                  telegram
+                </Button>
+              </Box>
+            </Stack>
             <div className="product_filter_form">
               <FormControl fullWidth>
                 <FormLabel>search by name</FormLabel>
@@ -98,19 +136,44 @@ const Dashboard = () => {
             {/**************************************
              * PRODUCT SORTS SECTION START HERE
              ***************************************/}
-            <Stack direction={"row"} pb={1} pt={3}>
+            <Stack direction={"row"} spacing={1} pb={1} pt={3}>
               <Sort />
-              <Box display={"flex"} sx={{ textTransform: "capitalize" }}>
-                <MenuItem>
-                  <Chip label="subscriber" />
-                </MenuItem>
-                <MenuItem>
-                  <Chip label="income" />
-                </MenuItem>
-                <MenuItem>
-                  <Chip label="price" />
-                </MenuItem>
-              </Box>
+              <Button
+                size="small"
+                variant=""
+                sx={{
+                  borderRadius: "30px",
+                  backgroundColor: "#eee",
+                  color: "gray",
+                  fontSize: "12px",
+                }}
+              >
+                subscriber
+              </Button>
+              <Button
+                size="small"
+                variant=""
+                sx={{
+                  borderRadius: "30px",
+                  backgroundColor: "#eee",
+                  color: "gray",
+                  fontSize: "12px",
+                }}
+              >
+                income
+              </Button>
+              <Button
+                size="small"
+                variant=""
+                sx={{
+                  borderRadius: "30px",
+                  backgroundColor: "#eee",
+                  color: "gray",
+                  fontSize: "12px",
+                }}
+              >
+                price
+              </Button>
             </Stack>
             <Box
               sx={{
@@ -138,7 +201,7 @@ const Dashboard = () => {
                   price={"$" + 233}
                   thumbnail_arr={image_obj}
                   product_views={100032}
-                  product_categry={1}
+                  product_categry={2}
                 />
               </Col>
             ))}

@@ -38,6 +38,7 @@ import {
   Referring,
   Orders,
 } from "../index";
+import Selling from "../selling/Selling";
 const DashboardSidebar = () => {
   const [OpenMyBusinessMenu, setOpenMyBusinessMenu] = useState(false);
   const [ShowSellerSidebarMenu, setShowSellerSidebarMenu] = useState(false);
@@ -76,6 +77,10 @@ const DashboardSidebar = () => {
     setSellerDashboardPage("earnings");
     save_states("earnings");
   };
+  const HandleOpenListingPages = () => {
+    setSellerDashboardPage("create_listing");
+    save_states("create_listing");
+  };
   return (
     <div>
       {/*******************************
@@ -104,9 +109,11 @@ const DashboardSidebar = () => {
       ) : SellerDashboardPage === "earnings" ? (
         <Earnings />
       ) : SellerDashboardPage === "manage_listing" ? (
-        <ProductListing />
+        <ProductListing Openlisting={HandleOpenListingPages} />
       ) : SellerDashboardPage === "orders" ? (
         <Orders />
+      ) : SellerDashboardPage === "create_listing" ? (
+        <Selling />
       ) : (
         "page not found!"
       )}

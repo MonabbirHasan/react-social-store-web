@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Container, Table, Badge as B4Badge } from "react-bootstrap";
 import {
   Avatar,
@@ -13,7 +14,7 @@ import {
 import { useState } from "react";
 import "./product_listing.css";
 import { Delete, Edit } from "@mui/icons-material";
-const Product_listing = () => {
+const Product_listing = (props) => {
   const [LisgingTab, setLisgingTab] = useState(1);
   const HandleTabs = (event, newValue) => {
     setLisgingTab(newValue);
@@ -27,6 +28,9 @@ const Product_listing = () => {
       fontWeight: "400",
       color: "GrayText",
     },
+  };
+  const CreateListing = () => {
+    props.Openlisting();
   };
   return (
     <div className="manage_listings">
@@ -112,7 +116,9 @@ const Product_listing = () => {
                     top: "5px",
                   }}
                 >
-                  <Button variant="contained">create</Button>
+                  <Button variant="contained" onClick={CreateListing}>
+                    create
+                  </Button>
                 </Box>
               </Tabs>
             </div>

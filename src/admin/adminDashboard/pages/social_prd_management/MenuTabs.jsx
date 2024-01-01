@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 import {
@@ -7,6 +8,7 @@ import {
   Telegram_service,
   Instagram_services,
   Website_service,
+  Service_Title,
 } from "./";
 import "./social_management.css";
 const MenuTabs = () => {
@@ -25,6 +27,7 @@ const MenuTabs = () => {
     <div className="product_menu_tabs">
       <div className="menu_tabls_wrapper">
         <div className="product_tabs">
+          <Service_Title title="CREATE NEW LISTING" />
           <Box sx={{ width: "100%" }}>
             <Tabs
               value={Tabsvalue}

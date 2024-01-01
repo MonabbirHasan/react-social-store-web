@@ -92,3 +92,30 @@
 //   const apiKey = "AIzaSyD7E3_-cqtfayhdTkL_Gx5zWdsafDN9cYw";
 //   const channelId = "UCGaFopmJeo2LNnkte7R6axQ";
 //   getYouTubeChannelInfo(apiKey, channelId);
+
+
+
+
+const imgRef = useRef(null);
+  const [ImgWidth, setImgWidth] = useState("");
+  const [ImgHeight, setImgHeight] = useState("");
+  useEffect(() => {
+    if (imgRef.current) {
+      // Check if the image is loaded
+      if (imgRef.current.complete) {
+        // Image is already loaded, you can get width and height directly
+        const width = imgRef.current.naturalWidth;
+        const height = imgRef.current.naturalHeight;
+        // console.log(`Image width: ${width}, height: ${height}`);
+      } else {
+        // Image is not yet loaded, add an event listener for the 'load' event
+        imgRef.current.addEventListener("load", () => {
+          const width = imgRef.current.naturalWidth;
+          setImgWidth(width);
+          const height = imgRef.current.naturalHeight;
+          setImgHeight(height);
+          // console.log(`Image width: ${width}, height: ${height}`);
+        });
+      }
+    }
+  }, []);

@@ -12,8 +12,8 @@ import subscriber_icon from "../../../assets/img/users-icon.png";
 import categories_icon from "../../../assets/img/categories.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import language_icon from "../../../assets/img/lang.png";
-import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { NavLink } from "react-router-dom";
 import "./product_card.css";
 import {
@@ -30,21 +30,20 @@ import {
 const ProductCard = (props) => {
   // eslint-disable-next-line no-unused-vars
   const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 1,
+      partialVisibilityGutter: 40, // this is needed to tell the amount of px that should be visible.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 1,
+      partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
+      partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
     },
   };
   const view_calculate = (number) => {
@@ -67,7 +66,9 @@ const ProductCard = (props) => {
         <Box pb={2} display={"flex"}>
           {props.product_categry === 1 ? (
             <>
-              <Avatar sx={{ backgroundColor: "red" }}>
+              <Avatar
+                sx={{ backgroundColor: "red", width: "30px", height: "30px" }}
+              >
                 <YouTube htmlColor="white" />
               </Avatar>
               <Typography
@@ -84,7 +85,13 @@ const ProductCard = (props) => {
             </>
           ) : props.product_categry === 2 ? (
             <>
-              <Avatar sx={{ backgroundColor: "dodgerblue" }}>
+              <Avatar
+                sx={{
+                  backgroundColor: "dodgerblue",
+                  width: "30px",
+                  height: "30px",
+                }}
+              >
                 <Facebook htmlColor="white" />
               </Avatar>
               <Typography
@@ -101,7 +108,9 @@ const ProductCard = (props) => {
             </>
           ) : props.product_categry === 3 ? (
             <>
-              <Avatar sx={{ backgroundColor: "#f0f" }}>
+              <Avatar
+                sx={{ backgroundColor: "#f0f", width: "30px", height: "30px" }}
+              >
                 <Instagram htmlColor="white" />
               </Avatar>
               <Typography
@@ -118,7 +127,13 @@ const ProductCard = (props) => {
             </>
           ) : props.product_categry === 4 ? (
             <>
-              <Avatar sx={{ backgroundColor: "dodgerblue" }}>
+              <Avatar
+                sx={{
+                  backgroundColor: "dodgerblue",
+                  width: "30px",
+                  height: "30px",
+                }}
+              >
                 <Twitter htmlColor="white" />
               </Avatar>
               <Typography
@@ -135,7 +150,13 @@ const ProductCard = (props) => {
             </>
           ) : props.product_categry === 5 ? (
             <>
-              <Avatar sx={{ backgroundColor: "dodgerblue" }}>
+              <Avatar
+                sx={{
+                  backgroundColor: "dodgerblue",
+                  width: "30px",
+                  height: "30px",
+                }}
+              >
                 <Telegram htmlColor="white" />
               </Avatar>
               <Typography
@@ -155,40 +176,48 @@ const ProductCard = (props) => {
           )}
         </Box>
         {/*PRODUCT CAROUSEL SECTIONS START HERE*/}
-        <Carousel
-          responsive={responsive}
-          draggable={false}
-          showDots={false}
-          ssr={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={8000}
-          dotListClass="seller_gig_item_slider_dots"
-          transitionDuration={8000}
-        >
-          {props.thumbnail_arr.map((imageData, index) => (
-            // eslint-disable-next-line react/jsx-key
-            <Box
-              sx={{
-                height: "200px",
-              }}
-            >
-              <LazyLoadImage
-                style={{
-                  width: "300px",
-                  height: "100%",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  borderRadius: "4px",
-                }}
-                key={index}
-                src={imageData.img}
-                alt={`Image ${index + 1}`}
-              />
-            </Box>
-          ))}
-        </Carousel>
-
+        <div className="my-own-custom-container">
+          <Carousel
+            // focusOnSelect={true}
+            // partialVisible={true}
+            arrows={true}
+            swipeable={false}
+            draggable={false}
+            showDots={false}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            // shouldResetAutoplay={false}
+            autoPlaySpeed={1000}
+            // keyBoardControl={true}
+            customTransition="all .4s"
+            transitionDuration={500}
+            // containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            rewindWithAnimation={true}
+            // dotListClass="custom-dot-list-style"
+            // itemClass="carousel-item-padding-30-px"
+            rtl={true}
+          >
+            {props.thumbnail_arr.map((imageData, index) => (
+              // eslint-disable-next-line react/jsx-key
+              <div style={{ width: "297px", height: "100%" }}>
+                <LazyLoadImage
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    borderRadius: "4px",
+                  }}
+                  key={index}
+                  src={imageData.img}
+                  alt={`Image ${index + 1}`}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
         {/*PRODUCT PRICE SECTIONS START HERE*/}
         <Box
           sx={{

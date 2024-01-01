@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   Avatar,
   AvatarGroup,
@@ -12,12 +13,17 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Badge, FloatingLabel, Form, InputGroup } from "react-bootstrap";
 import { Service_Title } from "./";
-import { Delete, Edit, LinkSharp } from "@mui/icons-material";
+import { Delete, Edit, LinkSharp, Refresh } from "@mui/icons-material";
 const Youtube_service = () => {
+  const [ChannelUrl, setChannelUrl] = useState("");
+  const [ChannelName, setChannelName] = useState("");
+  const [TotalSubscribers, setTotalSubscribers] = useState("");
+  const [TotalVideos, setTotalVideos] = useState("");
   const avatarSize = {
     width: "22px",
     height: "22px",
@@ -28,6 +34,86 @@ const Youtube_service = () => {
       fontSize: "12px",
     },
   };
+  /***************************************
+   * GET YOUTUBE CHANNEL INFO
+   ***************************************/
+  function getYouTubeChannelInfo(apiKey, channelId) {
+    const apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${channelId}&key=${apiKey}`;
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data)
+        if (data.items && data.items.length > 0) {
+          const channelData = data.items[0];
+          const channelName = channelData.snippet.title;
+          setChannelName(channelName);
+          const totalSubscribers = channelData.statistics.subscriberCount;
+          setTotalSubscribers(totalSubscribers);
+          const totalVideos = channelData.statistics.videoCount;
+          setTotalVideos(totalVideos);
+          const viewCount = channelData.statistics.viewCount;
+          console.log(
+            `Channel Name: ${channelName}, Subscribers: ${totalSubscribers}, Total Videos: ${totalVideos}`
+          );
+        } else {
+          console.log("Channel not found");
+        }
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }
+  function getChannelId(apiKey, channelName) {
+    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
+      channelName
+    )}&type=channel&key=${apiKey}`;
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.items && data.items.length > 0) {
+          const channelId = data.items[0].snippet.channelId;
+          console.log(`Channel ID: ${channelId}`);
+          getYouTubeChannelInfo(apiKey, channelId);
+        } else {
+          console.log("Channel not found");
+        }
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }
+  const apiKey = "AIzaSyD7E3_-cqtfayhdTkL_Gx5zWdsafDN9cYw";
+  getChannelId(apiKey, ChannelUrl);
+  /*********************************
+   * GENERATE CHANEL VERIFY ID
+   *********************************/
+  const generateChannelVerifyID = () => {
+    const timestamp = new Date().getTime().toString(16); // Convert timestamp to hexadecimal string
+    const randomString = Math.random().toString(16).substring(2, 12); // Generate random hexadecimal string
+    return `${timestamp}${randomString}`.substring(0, 20); // Combine timestamp and random string, limit to 20 characters
+  };
+  const customID = generateChannelVerifyID();
+  console.log(customID);
+  /*********************************
+   * GENERATE CUSTOM LISTING ID
+   *********************************/
+  const [uniqueId, setUniqueId] = useState("OMNlqtianrdsa980s");
+  const generateUniqueId = () => {
+    const timestamp = new Date().getTime().toString(36); // Convert timestamp to base36 string
+    const randomString = Math.random().toString(36).substring(2, 8); // Generate random string
+    const newUniqueId = `OMN${timestamp}${randomString}`; // Combine timestamp and random string
+    setUniqueId(newUniqueId);
+  };
   return (
     <div className="youtube_service">
       <div className="youtube_service_wrapper">
@@ -35,25 +121,35 @@ const Youtube_service = () => {
           <Service_Title title="youtube" />
           <InputGroup className="mb-3">
             <InputGroup.Text>Listing Id</InputGroup.Text>
-            <Form.Control />
+            <Form.Control value={uniqueId} />
+            <InputGroup.Text>
+              <IconButton onClick={() => generateUniqueId()}>
+                <Refresh />
+              </IconButton>
+            </InputGroup.Text>
           </InputGroup>
           <FloatingLabel
             controlId="floatingInput"
-            label="Channel Name"
+            label="Channel url"
             className="mb-3"
           >
-            <Form.Control type="text" />
+            <Form.Control
+              onKeyUp={(e) => setChannelUrl(e.target.value)}
+              type="text"
+            />
           </FloatingLabel>
+          <InputGroup>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Channel Name"
+              className="mb-3"
+            >
+              <Form.Control value={TotalSubscribers} type="text" />
+            </FloatingLabel>
+          </InputGroup>
           <FloatingLabel
             controlId="floatingInput"
             label="Channel Type"
-            className="mb-3"
-          >
-            <Form.Control type="text" />
-          </FloatingLabel>
-          <FloatingLabel
-            controlId="floatingInput"
-            label="Channel url"
             className="mb-3"
           >
             <Form.Control type="text" />
