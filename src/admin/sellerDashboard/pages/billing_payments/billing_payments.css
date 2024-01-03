@@ -4,3 +4,28 @@
 .billing_payment {
   padding: 40px 0;
 }
+/*add funds page design*/
+.add_funds {
+  padding: 10px;
+  background-color: #f8f9fa;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 3px solid #fff;
+  border-radius: 5px;
+}
+.add_funds.add_funds_wrapper {
+  width: 100%;
+}
+.add_funds .payment_methods {
+  height: 300px;
+  overflow-y: scroll;
+}
+.add_funds .payment_methods::-webkit-scrollbar {
+  width: 5px;
+  background-color: #eee;
+}
+.add_funds .payment_methods::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: dodgerblue;
+  border-radius: 5px;
+}
+/*WithdrawalFunds page design*/

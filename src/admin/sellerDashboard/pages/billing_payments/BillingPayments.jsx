@@ -4,6 +4,8 @@ import { Card, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import { Add, Payment } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 import "./billing_payments.css";
+// import AddFunds from "./AddFunds";
+import { AddFunds, WithdrawalFunds } from "./index";
 const BillingPayments = (props) => {
   const HandleOpenEarningsPage = () => {
     props.openEarnings();
@@ -15,6 +17,7 @@ const BillingPayments = (props) => {
           fontSize={"2rem"}
           fontWeight={"bold"}
           textTransform={"capitalize"}
+          color={'gray'}
         >
           Billing and payments
         </Typography>
@@ -27,14 +30,14 @@ const BillingPayments = (props) => {
             {/****************************
              * BILLING HISTORY SECTIONS
              *****************************/}
-            <Tab eventKey="home" title="Billing history">
-              <Typography>Billing history</Typography>
+            <Tab eventKey="home" title="Add Funds">
+              <AddFunds />
             </Tab>
             {/********************************
              * BILLING INFORMATIONS SECTIONS
              *********************************/}
-            <Tab eventKey="profile" title="Billing information">
-              Billing information
+            <Tab eventKey="profile" title="Witdrawal">
+              <WithdrawalFunds />
             </Tab>
             {/********************************
              * AVAILABLE BALANCE SECTIONS

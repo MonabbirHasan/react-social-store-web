@@ -6,6 +6,7 @@ import {
   LeakAddOutlined,
   Logout,
   MailOutline,
+  MonetizationOn,
   NotificationsOutlined,
   Payment,
   Person,
@@ -247,6 +248,19 @@ const Header = (props) => {
                       </Button>
                     </Box>
                     <Box sx={{ paddingRight: 3, mt: 2 }}>
+                      <MenuItem disableGutters sx={{ p: 1 }}>
+                        <Typography marginRight={1}>
+                          <MonetizationOn />
+                        </Typography>
+                        <Stack
+                          direction={"row"}
+                          justifyContent={"space-between"}
+                          width={"100%"}
+                        >
+                          <Typography fontSize={"14px"}>Balance</Typography>
+                          <Typography fontSize={"14px"}>$3423 USD</Typography>
+                        </Stack>
+                      </MenuItem>
                       <MenuItem
                         disableGutters
                         sx={{ p: 1 }}
@@ -255,7 +269,7 @@ const Header = (props) => {
                         <Typography marginRight={1}>
                           <Person />
                         </Typography>
-                        <Typography>Profile</Typography>
+                        <Typography fontSize={"14px"}>Profile</Typography>
                       </MenuItem>
                       <MenuItem
                         disableGutters
@@ -265,7 +279,9 @@ const Header = (props) => {
                         <Typography marginRight={1}>
                           <LeakAddOutlined />
                         </Typography>
-                        <Typography>Refer a Friend</Typography>
+                        <Typography fontSize={"14px"}>
+                          Refer a Friend
+                        </Typography>
                       </MenuItem>
                       <MenuItem
                         disableGutters
@@ -275,7 +291,7 @@ const Header = (props) => {
                         <Typography marginRight={1}>
                           <Settings />
                         </Typography>
-                        <Typography>Settings</Typography>
+                        <Typography fontSize={"14px"}>Settings</Typography>
                       </MenuItem>
                       <MenuItem
                         disableGutters
@@ -285,7 +301,9 @@ const Header = (props) => {
                         <Typography marginRight={1}>
                           <Payment />
                         </Typography>
-                        <Typography>Billing and payments</Typography>
+                        <Typography fontSize={"14px"}>
+                          Billing and payments
+                        </Typography>
                       </MenuItem>
                       <MenuItem
                         disableGutters
@@ -295,13 +313,13 @@ const Header = (props) => {
                         <Typography marginRight={1}>
                           <Language />
                         </Typography>
-                        <Typography>Language</Typography>
+                        <Typography fontSize={"14px"}>Language</Typography>
                       </MenuItem>
                       <MenuItem disableGutters sx={{ p: 1 }}>
                         <Typography marginRight={1}>
                           <Logout />
                         </Typography>
-                        <Typography>Logout</Typography>
+                        <Typography fontSize={"14px"}>Logout</Typography>
                       </MenuItem>
                     </Box>
                   </Box>
