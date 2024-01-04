@@ -8,5 +8,10 @@
 }
 .user_settings_page .nav-pills .nav-link.active,
 .nav-pills .nav-link:active {
-  background-color: #eee;
+  background-color: #fafafa;
+}
+.user_settings_page .kyc{
+  display: flex;
+  margin-top: 30px;
+  padding: 30px;
 }

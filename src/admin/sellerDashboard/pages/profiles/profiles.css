@@ -1,0 +1,11 @@
+.seller_profile_page {
+    padding: 1% 0;
+  }
+  .seller_profile_page .seller_profile_page_left {
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+    border: 2px solid #fff;
+    border-radius: 5px;
+  }
+  

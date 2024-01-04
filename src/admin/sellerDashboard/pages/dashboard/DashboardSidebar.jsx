@@ -22,12 +22,6 @@ import {
   Settings,
   Store,
 } from "@mui/icons-material";
-// import SellerProfileView from "../../../../clients/pages/seller_profile/SellerProfile";
-// import BillingPayments from "../billing_payments/BillingPayments";
-// import SellerSettings from "../settings/SellerSettings";
-// import Referring from "../referring/Referring";
-// import Earnings from "../earnings/Earnings";
-// import SellerDashboard from "./Dashboard";
 import {
   SellerDashboard,
   Earnings,
@@ -37,6 +31,9 @@ import {
   SellerSettings,
   Referring,
   Orders,
+  WatachAds,
+  DailyTask,
+  Subscription,
 } from "../index";
 import Selling from "../selling/Selling";
 const DashboardSidebar = () => {
@@ -81,6 +78,19 @@ const DashboardSidebar = () => {
     setSellerDashboardPage("create_listing");
     save_states("create_listing");
   };
+  const HandleOpenDailyTaskPages = () => {
+    setSellerDashboardPage("daily_task");
+    save_states("daily_task");
+  };
+  const HandleOpenDailyTaskViewPages = () => {
+    setSellerDashboardPage("daily_task_view");
+    save_states("daily_task_view");
+  };
+  const HandleOpenSubscriptionPages = () => {
+    setSellerDashboardPage("subscription");
+    save_states("subscription");
+  };
+
   return (
     <div>
       {/*******************************
@@ -101,7 +111,10 @@ const DashboardSidebar = () => {
       ) : SellerDashboardPage === "seller_dashboard_setting" ? (
         <SellerSettings />
       ) : SellerDashboardPage === "seller_profile" ? (
-        <SellerProfileView />
+        <SellerProfileView
+          OpenSubscription={HandleOpenSubscriptionPages}
+          OpenDailyTask={HandleOpenDailyTaskPages}
+        />
       ) : SellerDashboardPage === "referring" ? (
         <Referring />
       ) : SellerDashboardPage === "billing_payment" ? (
@@ -114,6 +127,15 @@ const DashboardSidebar = () => {
         <Orders />
       ) : SellerDashboardPage === "create_listing" ? (
         <Selling />
+      ) : SellerDashboardPage === "daily_task" ? (
+        <DailyTask
+          openProfile={HandleOpenProfile}
+          OpenDailyTaskView={HandleOpenDailyTaskViewPages}
+        />
+      ) : SellerDashboardPage === "daily_task_view" ? (
+        <WatachAds OpenDailyTask={HandleOpenDailyTaskPages} />
+      ) : SellerDashboardPage === "subscription" ? (
+        <Subscription openProfile={HandleOpenProfile}/>
       ) : (
         "page not found!"
       )}

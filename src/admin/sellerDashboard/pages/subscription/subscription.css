@@ -1,0 +1,64 @@
+.subscription_page {
+  padding: 30px 0;
+}
+.subscription_page .subscription_page_head {
+  padding: 10px;
+  background-color: dodgerblue;
+  border-radius: 5px;
+  border: 2px solid #fff;
+}
+.subscription_page .subscription_page_wrapper {
+  padding: 20px 0;
+  width: 100%;
+}
+.subscription_page .subscription_page_wrapper .subscription_plan_details {
+  padding-top: 10px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.subscription_page .subscription_page_wrapper .subscription_plan_details li {
+    list-style-type: circle;
+    text-transform: capitalize;
+    color: gray;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.subscription_page .subscription_page_wrapper .subscription_item {
+  padding:40px;
+  display: inline-block;
+  /* background-color: dodgerblue; */
+  /* background:linear-gradient(to left, #ef12f7,#f39f02); */
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.subscription_page .subscription_page_wrapper .subscription_item::after {
+  content: "";
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  filter: brightness(1.2);
+}
+
+.subscription_page .subscription_page_wrapper .subscription_item.item0::after {
+  background-image: url("../../../../assets/img/subscription_plan_1.png");
+}
+.subscription_page .subscription_page_wrapper .subscription_item.item1::after {
+  background-image: url("../../../../assets/img/subscription_plan_2.png");
+}
+.subscription_page .subscription_page_wrapper .subscription_item.item2::after {
+  background-image: url("../../../../assets/img/subscription_plan_1.png");
+}
+
