@@ -26,7 +26,8 @@ import {
   SignUp,
   SignIn,
   SellerProfileView,
-  ServiceRequest
+  ServiceRequest,
+  ProductDetails
 } from "./clients/pages/index";
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/smm_panel" element={<SmmPanel />} />
         <Route path="/web_shop" element={<Webshop />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/details/:slug" element={<ProductDetails />} />
         <Route path="/seller_profile" element={<SellerProfileView />} />
         <Route path="/service_request" element={<ServiceRequest />} />
         <Route path="/signup" element={<SignUp />} />

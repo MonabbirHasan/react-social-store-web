@@ -17,9 +17,14 @@ import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 const AddFunds = () => {
   const [value, setValue] = useState("");
+  const [Currency, setCurrency] = useState("");
   const handleChange = (event) => {
     setValue(event.target.value === value ? "" : event.target.value);
   };
+  const handleChangeCurrency = (event) => {
+    setCurrency(event.target.value);
+  };
+
   const payment_methods = [
     {
       name: "stripe",
@@ -45,13 +50,25 @@ const AddFunds = () => {
       name: "crypto",
       img: "https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1303387/regular_1708x683_Untitled-e7fde53f1e5631a8728cc9aefc1538e8.png",
     },
+    {
+      name: "web money",
+      img: "https://1000logos.net/wp-content/uploads/2023/03/WebMoney-logo.png",
+    },
+    {
+      name: "easy paisa",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBYlpxYl3rbyN-CwYojsQbp9T16t3uW2jJrgz78k4UQ&s",
+    },
+    {
+      name: "Skrill",
+      img: "https://play-lh.googleusercontent.com/I8AQgdC1R5Gm_MKz4RskAsAroFY43cLQMe6IEiV0NkqATjaz863rfkjjx2IpeayGhW8",
+    },
   ];
   return (
     <div className="add_funds">
       <div className="add_funds_wrapper">
         <Row>
           {/*ADD FUNDS PAYMENT METHODS START HERE*/}
-          <Col lg={3} md={12} sm={12}>
+          <Col lg={4} md={12} sm={12}>
             <div className="payment_methods">
               <Typography
                 textTransform={"capitalize"}
@@ -95,7 +112,6 @@ const AddFunds = () => {
                           />
                         </RadioGroup>
                       </FormControl>
-                      {items.name}
                     </Typography>
                     <Avatar
                       sx={{
@@ -111,7 +127,7 @@ const AddFunds = () => {
             </div>
           </Col>
           {/*ADD FUNDS PAYMENT DETAILS START HERE*/}
-          <Col lg={6} md={12} sm={12}>
+          <Col lg={8} md={12} sm={12}>
             <div className="">
               <Typography
                 textTransform={"capitalize"}
@@ -123,17 +139,22 @@ const AddFunds = () => {
               </Typography>
               <FormControl fullWidth sx={{ my: 1 }}>
                 <FormLabel>Currency</FormLabel>
-                <Select variant="filled" size="small">
-                  <MenuItem>$ - US Dollar</MenuItem>
-                  <MenuItem>€ - Euro</MenuItem>
-                  <MenuItem>£ - British Pound</MenuItem>
-                  <MenuItem>¥ - Japanese Yen</MenuItem>
-                  <MenuItem>A$ - Australian Dollar</MenuItem>
-                  <MenuItem>C$ - Canadian Dollar</MenuItem>
-                  <MenuItem>CHF - Swiss Franc</MenuItem>
-                  <MenuItem>¥ - Chinese Yuan</MenuItem>
-                  <MenuItem>₹ - Indian Rupee</MenuItem>
-                  <MenuItem>₽ - Russian Ruble</MenuItem>
+                <Select
+                  value={Currency}
+                  onChange={handleChangeCurrency}
+                  variant="filled"
+                  size="small"
+                >
+                  <MenuItem value={1}>$ - US Dollar</MenuItem>
+                  <MenuItem value={2}>€ - Euro</MenuItem>
+                  <MenuItem value={3}>£ - British Pound</MenuItem>
+                  <MenuItem value={4}>¥ - Japanese Yen</MenuItem>
+                  <MenuItem value={5}>A$ - Australian Dollar</MenuItem>
+                  <MenuItem value={6}>C$ - Canadian Dollar</MenuItem>
+                  <MenuItem value={7}>CHF - Swiss Franc</MenuItem>
+                  <MenuItem value={8}>¥ - Chinese Yuan</MenuItem>
+                  <MenuItem value={9}>₹ - Indian Rupee</MenuItem>
+                  <MenuItem value={10}>₽ - Russian Ruble</MenuItem>
                 </Select>
               </FormControl>
               <FormControl fullWidth sx={{ my: 1 }}>

@@ -8,16 +8,22 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
+  MenuItem,
   Radio,
   RadioGroup,
+  Select,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
 const WithdrawalFunds = () => {
   const [value, setValue] = useState("");
+  const [Currency, setCurrency] = useState("");
   const handleChange = (event) => {
     setValue(event.target.value === value ? "" : event.target.value);
+  };
+  const handleChangeCurrency = (event) => {
+    setCurrency(event.target.value);
   };
   const payment_methods = [
     {
@@ -43,6 +49,18 @@ const WithdrawalFunds = () => {
     {
       name: "crypto",
       img: "https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1303387/regular_1708x683_Untitled-e7fde53f1e5631a8728cc9aefc1538e8.png",
+    },
+    {
+      name: "web money",
+      img: "https://1000logos.net/wp-content/uploads/2023/03/WebMoney-logo.png",
+    },
+    {
+      name: "easy paisa",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBYlpxYl3rbyN-CwYojsQbp9T16t3uW2jJrgz78k4UQ&s",
+    },
+    {
+      name: "Skrill",
+      img: "https://play-lh.googleusercontent.com/I8AQgdC1R5Gm_MKz4RskAsAroFY43cLQMe6IEiV0NkqATjaz863rfkjjx2IpeayGhW8",
     },
   ];
   return (
@@ -117,6 +135,26 @@ const WithdrawalFunds = () => {
                 <FormControl fullWidth sx={{ py: 1 }}>
                   <FormLabel htmlFor="amount">Amount</FormLabel>
                   <TextField variant="filled" size="small" />
+                </FormControl>
+                <FormControl fullWidth sx={{ my: 1 }}>
+                  <FormLabel>Currency</FormLabel>
+                  <Select
+                    value={Currency}
+                    onChange={handleChangeCurrency}
+                    variant="filled"
+                    size="small"
+                  >
+                    <MenuItem value={1}>$ - US Dollar</MenuItem>
+                    <MenuItem value={2}>€ - Euro</MenuItem>
+                    <MenuItem value={3}>£ - British Pound</MenuItem>
+                    <MenuItem value={4}>¥ - Japanese Yen</MenuItem>
+                    <MenuItem value={5}>A$ - Australian Dollar</MenuItem>
+                    <MenuItem value={6}>C$ - Canadian Dollar</MenuItem>
+                    <MenuItem value={7}>CHF - Swiss Franc</MenuItem>
+                    <MenuItem value={8}>¥ - Chinese Yuan</MenuItem>
+                    <MenuItem value={9}>₹ - Indian Rupee</MenuItem>
+                    <MenuItem value={10}>₽ - Russian Ruble</MenuItem>
+                  </Select>
                 </FormControl>
                 <Stack
                   direction={"row"}

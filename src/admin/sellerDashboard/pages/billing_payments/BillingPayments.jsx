@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import { Card, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import { Add, Payment } from "@mui/icons-material";
+// import { Add, Payment } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 import "./billing_payments.css";
 // import AddFunds from "./AddFunds";
@@ -130,7 +130,7 @@ const BillingPayments = (props) => {
             {/********************************
              * PAYMENTS METHODS SECTIONS
              *********************************/}
-            <Tab eventKey="balances" title="Payment methods">
+            {/* <Tab eventKey="balances" title="Payment methods">
               <Typography fontWeight={"600"} fontSize={"22px"}>
                 Payment methods
               </Typography>
@@ -172,7 +172,7 @@ const BillingPayments = (props) => {
                   </Card.Body>
                 </Card>
               </Box>
-            </Tab>
+            </Tab> */}
           </Tabs>
         </section>
       </Container>

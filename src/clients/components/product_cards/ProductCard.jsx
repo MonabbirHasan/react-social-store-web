@@ -14,7 +14,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import language_icon from "../../../assets/img/lang.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./product_card.css";
 import {
   CheckCircle,
@@ -29,6 +29,7 @@ import {
 } from "@mui/icons-material";
 const ProductCard = (props) => {
   // eslint-disable-next-line no-unused-vars
+  const navigate = useNavigate();
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -423,6 +424,9 @@ const ProductCard = (props) => {
             <FavoriteBorder htmlColor="red" sx={{ fontSize: "2rem" }} />
           </IconButton>
           <Button
+            onClick={() => {
+              navigate("/details/" + props.product_categry);
+            }}
             centerRipple
             fullWidth
             sx={{

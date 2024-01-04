@@ -1,0 +1,28 @@
+.product_details {
+  padding: 7% 0;
+}
+.product_details .product_details_page_wrapper {
+  padding: 20px;
+  background-color: #eee;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 3px solid #fff;
+  border-radius: 10px;
+}
+.product_details .product_details_page_wrapper .detail_tabs {
+  padding: 20px 0;
+}
+.product_details .custom-dot-list-style {
+  padding-bottom: 15px;
+  border-color: red !important;
+}
+.product_details .custom-dot-list-style button {
+  background-color: orange;
+  border-color: white;
+  border-width: 3px;
+}
+.product_details
+  .custom-dot-list-style
+  .react-multi-carousel-dot--active
+  button {
+  background-color: black;
+}
