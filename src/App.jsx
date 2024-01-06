@@ -27,7 +27,8 @@ import {
   SignIn,
   SellerProfileView,
   ServiceRequest,
-  ProductDetails
+  ProductDetails,
+  ChatRoom,
 } from "./clients/pages/index";
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/details/:slug" element={<ProductDetails />} />
         <Route path="/seller_profile" element={<SellerProfileView />} />
+        <Route path="/chat_room" element={<ChatRoom />} />
         <Route path="/service_request" element={<ServiceRequest />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />

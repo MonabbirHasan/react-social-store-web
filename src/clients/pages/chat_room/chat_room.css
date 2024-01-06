@@ -1,0 +1,174 @@
+.chat_room {
+  padding: 6% 0;
+}
+.chat_room .chat_room_wrapper {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+  /* overflow: hidden; */
+  gap: 10px;
+  height: 100vh;
+}
+/* chat list */
+.chat_room .chat_room_wrapper .chat_list {
+  height: 100vh;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #eee;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 3px solid #fff;
+  /* overflow-y: scroll; */
+}
+.chat_room .chat_room_wrapper .chat_list .chat_list_wrapper {
+  overflow-y: scroll;
+  height: 80%;
+}
+.chat_room .chat_room_wrapper .chat_list .chat_list_wrapper::-webkit-scrollbar {
+  width: 0;
+}
+
+.chat_room .chat_room_wrapper .chat_list .chat_list_search {
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.chat_room .chat_room_wrapper .chat_list::-webkit-scrollbar {
+  width: 5px;
+  background-color: #eee;
+}
+.chat_room .chat_room_wrapper .chat_list::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #333;
+  border-radius: 5px;
+}
+.chat_room .chat_room_wrapper .chat_list .chat_list_item {
+  display: flex;
+  gap: 10px;
+  /* background: #00bf59; */
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  width: 100%;
+}
+/* .chat_room .chat_room_wrapper .chat_list .chat_list_wrapper:hover{
+  background-color: #007838;
+} */
+/* chat body */
+.chat_room .chat_room_wrapper .chat_body {
+  background-color: #eee;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 3px solid #fff;
+  height: 100vh;
+  border-radius: 10px;
+}
+.chat_room .chat_room_wrapper .chat_body .chat_header {
+  padding: 10px;
+  background-color: #1a9f58;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.chat_room .chat_room_wrapper .chat_body .chat_box {
+  padding: 10px;
+  height: 80%;
+  overflow-y: scroll;
+}
+.chat_room .chat_room_wrapper .chat_body .chat_controll {
+  margin-top: 61%;
+  padding: 10px;
+  background-color: #1a9f58;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  gap: 10px;
+}
+.chat_room .chat_room_wrapper .chat_body .chat_box .sender {
+  padding: 10px;
+  text-align: left;
+  margin: 10px 0;
+}
+.chat_room .chat_room_wrapper .chat_body .chat_box .sender p {
+  background: #1a9f58;
+  padding: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
+  text-transform: lowercase;
+  margin-top: 5px;
+}
+.chat_room .chat_room_wrapper .chat_body .chat_box .receiver {
+  padding: 10px;
+  text-align: right;
+}
+.chat_room .chat_room_wrapper .chat_body .chat_box .receiver p {
+  background: #1a9f58;
+  padding: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
+  text-transform: lowercase;
+  margin-top: 5px;
+}
+/* chat right side */
+.chat_room .chat_room_wrapper .chat_right_side {
+  background-color: #eee;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 3px solid #fff;
+  height: 100vh;
+  border-radius: 10px;
+  /* overflow: hidden;  */
+}
+.chat_room .chat_room_wrapper .chat_right_side .seller_listing_in_chats {
+  padding: 10px;
+  height: 66vh;
+  overflow-y: auto;
+}
+.chat_room
+  .chat_room_wrapper
+  .chat_right_side
+  .seller_listing_in_chats::-webkit-scrollbar {
+  width: 5px;
+  background-color: #eee;
+}
+.chat_room
+  .chat_room_wrapper
+  .chat_right_side
+  .seller_listing_in_chats::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 5px;
+  background-color: black;
+}
+.chat_room
+  .chat_room_wrapper
+  .chat_right_side
+  .seller_listing_in_chats
+  .listing_item {
+  padding: 10px;
+  background-color: #1795fc;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+/*responsive code start here*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .chat_room .chat_room_wrapper {
+    grid-template-columns: auto;
+  }
+  /* chat list */
+  .chat_room .chat_room_wrapper .chat_list {
+    display: block;
+  }
+  /* chat body */
+  .chat_room .chat_room_wrapper .chat_body {
+    display: none;
+  }
+  /* chat right sidebar */
+  .chat_room .chat_room_wrapper .chat_right_side {
+    display: none;
+  }
+}

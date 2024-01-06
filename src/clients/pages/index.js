@@ -4,6 +4,7 @@ export { default as ServiceRequest } from "./service_request/ServiceReques";
 export { default as SignUp } from "../authentication/signup/Signup";
 export { default as SignIn } from "../authentication/login/Login";
 export { default as SmmPanel } from "./smm_panel/SmmPanel";
+export { default as ChatRoom } from "./chat_room/ChatRoom";
 export { default as Products } from "./products/Products";
 export { default as Webshop } from "./web_shop/WebShop";
 export { default as Contact } from "./contact/Contact";

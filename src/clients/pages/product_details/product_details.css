@@ -7,6 +7,7 @@
   box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
   border: 3px solid #fff;
   border-radius: 10px;
+  list-style: decimal;
 }
 .product_details .product_details_page_wrapper .detail_tabs {
   padding: 20px 0;
