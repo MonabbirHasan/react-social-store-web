@@ -10,8 +10,29 @@
 .nav-pills .nav-link:active {
   background-color: #fafafa;
 }
-.user_settings_page .kyc{
+.user_settings_page .kyc {
   display: flex;
   margin-top: 30px;
   padding: 30px;
+}
+/* AddVerifiedPayMethod */
+.add_payment_method {
+  padding: 5% 0;
+}
+.add_payment_method_wrapper {
+  padding: 1px;
+}
+.payment_method_right_side {
+  padding: 20px;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  background-color: #fafafa;
+  border: 3px solid #fff;
+  border-radius: 5px;
+}
+.payment_method_left_side {
+  padding: 10px;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  background-color: #fafafa;
+  border: 3px solid #fff;
+  border-radius: 5px;
 }

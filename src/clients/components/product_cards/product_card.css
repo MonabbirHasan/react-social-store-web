@@ -1,9 +1,31 @@
 .product_card_items {
-    padding: 10px;
-    background-color: #f8f9fa;
-    box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
-    border: 2px solid #fff;
-    border-radius: 1px;
-    margin-bottom: 10px;
-    overflow: hidden;
+  padding: 10px;
+  background-color: #f8f9fa;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 2px solid #fff;
+  border-radius: 1px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.product_card_items #favourits {
+  font-size: 2rem;
+  animation: heartRipple 2s infinite;
+  border-radius: 100%;
+}
+.product_card_items #favourits:hover {
+  animation-play-state: paused;
+}
+@keyframes heartRipple {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #fea8a8;
   }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 0 #fea8a8;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #fea8a8;
+  }
+}

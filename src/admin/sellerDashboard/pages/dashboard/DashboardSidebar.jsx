@@ -34,6 +34,7 @@ import {
   WatachAds,
   DailyTask,
   Subscription,
+  AddPaymentVarify,
 } from "../index";
 import Selling from "../selling/Selling";
 const DashboardSidebar = () => {
@@ -90,6 +91,10 @@ const DashboardSidebar = () => {
     setSellerDashboardPage("subscription");
     save_states("subscription");
   };
+  const HandleOpenPaymentVerifyPages = () => {
+    setSellerDashboardPage("add_payment_varify");
+    save_states("add_payment_varify");
+  };
 
   return (
     <div>
@@ -109,7 +114,7 @@ const DashboardSidebar = () => {
       {SellerDashboardPage === "dashboard" ? (
         <SellerDashboard />
       ) : SellerDashboardPage === "seller_dashboard_setting" ? (
-        <SellerSettings />
+        <SellerSettings OpenPaymentVerifyPages={HandleOpenPaymentVerifyPages} />
       ) : SellerDashboardPage === "seller_profile" ? (
         <SellerProfileView
           OpenSubscription={HandleOpenSubscriptionPages}
@@ -135,7 +140,9 @@ const DashboardSidebar = () => {
       ) : SellerDashboardPage === "daily_task_view" ? (
         <WatachAds OpenDailyTask={HandleOpenDailyTaskPages} />
       ) : SellerDashboardPage === "subscription" ? (
-        <Subscription openProfile={HandleOpenProfile}/>
+        <Subscription openProfile={HandleOpenProfile} />
+      ) : SellerDashboardPage === "add_payment_varify" ? (
+        <AddPaymentVarify />
       ) : (
         "page not found!"
       )}

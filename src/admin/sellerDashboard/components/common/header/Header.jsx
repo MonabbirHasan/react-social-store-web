@@ -343,35 +343,35 @@ const Header = (props) => {
                 style={{ width: "30px" }}
                 src="https://flagsapi.com/BD/shiny/64.png"
               />
-              <Typography p={1}>Bangladesh</Typography>
+              <Typography p={1}>Bangla</Typography>
             </MenuItem>
             <MenuItem>
               <LazyLoadImage
                 style={{ width: "30px" }}
                 src="https://flagsapi.com/IN/shiny/64.png"
               />
-              <Typography p={1}>India</Typography>
+              <Typography p={1}>Hindi</Typography>
             </MenuItem>
             <MenuItem>
               <LazyLoadImage
                 style={{ width: "30px" }}
                 src="https://flagsapi.com/PK/shiny/64.png"
               />
-              <Typography p={1}>Pakistan</Typography>
+              <Typography p={1}>Urdu</Typography>
             </MenuItem>
             <MenuItem>
               <LazyLoadImage
                 style={{ width: "30px" }}
                 src="https://flagsapi.com/US/shiny/64.png"
               />
-              <Typography p={1}>Unitate States</Typography>
+              <Typography p={1}>English</Typography>
             </MenuItem>
             <MenuItem>
               <LazyLoadImage
                 style={{ width: "30px" }}
                 src="https://flagsapi.com/SA/shiny/64.png"
               />
-              <Typography p={1}>Saudi Arabia</Typography>
+              <Typography p={1}>Arabic</Typography>
             </MenuItem>
           </List>
         </Modal.Body>

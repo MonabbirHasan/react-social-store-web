@@ -1,5 +1,6 @@
 export { default as BillingPayments } from "../pages/billing_payments/BillingPayments";
 export { default as ProductListing } from "../pages/product_listing/Product_listing";
+export { default as AddPaymentVarify } from "../pages/settings/AddVerifiedPayMethod";
 export { default as SellerSettings } from "../pages/settings/SellerSettings";
 export { default as Subscription } from "../pages/subscription/Subscription";
 export { default as DailyTask } from "../pages/daily_task_ads/DailyTaskAds";

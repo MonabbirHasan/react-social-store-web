@@ -13,7 +13,6 @@ import { Row, Col, Container, Badge } from "react-bootstrap";
 import {
   AdsClick,
   ArrowCircleRight,
-  ArrowRight,
   BadgeOutlined,
   CheckCircle,
   MapSharp,
@@ -169,6 +168,7 @@ const Profiles = (props) => {
                       <Col key={items}>
                         <div className="seller_gig_item">
                           <ProductCard
+                            badges="new"
                             title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, veniam."
                             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, veniam."
                             listing_id="OM32343"

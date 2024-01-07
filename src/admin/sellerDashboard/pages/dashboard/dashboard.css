@@ -22,6 +22,7 @@
   border: 3px solid #fff;
   border-radius: 5px;
   text-transform: capitalize;
+  color: #00b718;
 }
 .seller_dashboard_page
   .product_filters
@@ -40,4 +41,16 @@
   grid-template-columns: auto auto auto;
   gap: 10px;
   margin-top: 20px;
+}
+/* seller_analytics */
+.seller_dashboard_page .seller_analytics {
+  padding: 1px;
+}
+.seller_dashboard_page .seller_analytics .analytics_items {
+  padding: 10px;
+  background: #f8f9fa;
+  text-align: left;
+  box-shadow: -2px -2px 5px #eee, 2px 2px 5px #eee;
+  border: 2px solid #fff;
+  border-radius: 5px;
 }

@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
-import "./chat_room.css";
-import { Form } from "react-bootstrap";
-import { Discuss } from "react-loader-spinner";
 import Header from "../../components/common/header/Header";
+import React, { useState, useEffect } from "react";
+import { Discuss } from "react-loader-spinner";
+import { styled } from "@mui/material/styles";
+import { Form } from "react-bootstrap";
+import "./chat_room.css";
 import {
   ArrowCircleLeft,
   EmojiEmotions,
@@ -14,6 +15,7 @@ import {
 } from "@mui/icons-material";
 import {
   Avatar,
+  Badge,
   Box,
   Button,
   Divider,
@@ -23,12 +25,19 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { NavLink, useNavigate } from "react-router-dom";
 const ChatRoom = () => {
+  const navigate = useNavigate();
+  /************************
+   * ALL STATE START HERE
+   ************************/
   const [ChatId, setChatId] = useState("");
   const [OpenCloseLeftSidebar, setOpenCloseLeftSidebar] = useState(false);
   const [OpenCloseRightSidebar, setOpenCloseRightSidebar] = useState(false);
   const [OpenCloseChatBody, setOpenCloseChatBody] = useState("none");
-  // media query in jsx
+  /********************************
+   * RESPONSIVE STYLE START HERE
+   ********************************/
   const [matches, setMatches] = useState(
     window.matchMedia("(min-width: 480px)").matches
   );
@@ -45,7 +54,9 @@ const ChatRoom = () => {
     !matches ? setOpenCloseRightSidebar(true) : setOpenCloseRightSidebar(false);
     setOpenCloseChatBody("none");
   };
-  //jsx stylesheet here
+  /*******************************
+   * CUSTOM STYLESHEET START HERE
+   *******************************/
   const StyleSheet = {
     paragraph_style: {
       fontSize: "14px",
@@ -53,7 +64,40 @@ const ChatRoom = () => {
       textTransform: "capitalize",
     },
   };
-
+  /****************************************
+   * CHAT LIST BADGE ANIMATION START HERE
+   ****************************************/
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      backgroundColor: "#44b700",
+      color: "#44b700",
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      "&::after": {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        borderRadius: "50%",
+        animation: "ripple 1.2s infinite ease-in-out",
+        border: "1px solid currentColor",
+        content: '""',
+      },
+    },
+    "@keyframes ripple": {
+      "0%": {
+        transform: "scale(.8)",
+        opacity: 1,
+      },
+      "100%": {
+        transform: "scale(2.4)",
+        opacity: 0,
+      },
+    },
+  }));
+  /***************************************
+   * DUMMY CHAT MESSAGE JSON OBJECT HERE
+   ***************************************/
   const messages = [
     {
       id: 2,
@@ -171,12 +215,14 @@ const ChatRoom = () => {
                 : "",
             }}
           >
+            {/*chat list search start here*/}
             <div className="chat_list_search">
               <Form.Control placeholder="Search Seller!" />
               <IconButton variant="contained" sx={{ ml: 1 }}>
                 <Search htmlColor="green" />
               </IconButton>
             </div>
+            {/*chat list start here*/}
             <div className="chat_list_wrapper">
               {messages.map((items) => (
                 <MenuItem
@@ -194,10 +240,13 @@ const ChatRoom = () => {
                   }}
                 >
                   <div className="chat_list_item">
-                    <Avatar
-                      sx={{ border: "2px solid #fff" }}
-                      src={items.picture}
-                    />
+                    <StyledBadge
+                      overlap="circular"
+                      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                      variant="dot"
+                    >
+                      <Avatar alt={items.name} src={items.picture} />
+                    </StyledBadge>
                     <Box>
                       <Typography sx={StyleSheet.paragraph_style}>
                         {items.name}
@@ -210,23 +259,28 @@ const ChatRoom = () => {
                 </MenuItem>
               ))}
             </div>
+            {/*escrow agent profile start here*/}
             <div
-              className="chat_list_item"
+              className="chat_list_item agent"
               style={{
                 marginTop: "10px",
-                backgroundColor: "green",
+                backgroundColor: "",
                 padding: "5px",
               }}
             >
-              <Avatar
-                src="https://image.ibb.co/eLVWbw/katie_1.jpg"
-                sx={{ border: "2px solid #fff" }}
-              />
+              <StyledBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                variant="dot"
+              >
+                <Avatar
+                  alt="Remy Sharp"
+                  src="https://image.ibb.co/k0wVTm/profile_pic.jpg"
+                />
+              </StyledBadge>
               <Box>
-                <Typography sx={StyleSheet.paragraph_style}>
-                  Jhone Agent
-                </Typography>
-                <Typography sx={StyleSheet.paragraph_style}>Agent</Typography>
+                <Typography sx={{ color: "gray" }}>Jhone Agent</Typography>
+                <Typography sx={{ color: "gray" }}>Agent</Typography>
               </Box>
             </div>
           </div>
@@ -237,6 +291,7 @@ const ChatRoom = () => {
               display: OpenCloseLeftSidebar === true ? "block" : "",
             }}
           >
+            {/*CHAT HEADER START HERE*/}
             <div className="chat_header">
               <IconButton
                 sx={{ display: !OpenCloseLeftSidebar ? "none" : "" }}
@@ -271,9 +326,29 @@ const ChatRoom = () => {
             </div>
             {ChatId ? (
               <>
+                {/*CHAT BOX START HERE*/}
                 <div className="chat_box">
                   {messages.map((items) => (
                     <Box key={items.id}>
+                      <div className="sender">
+                        <Stack
+                          direction={"row"}
+                          justifyContent={"space-between"}
+                        >
+                          <Avatar
+                            src={items.picture}
+                            sx={{ textAlign: "right" }}
+                          />
+                          <Typography component={"h3"}></Typography>
+                        </Stack>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Soluta quos unde, consequuntur totam optio
+                          deleniti numquam culpa explicabo quibusdam doloribus
+                          sequi. Ea qui ipsa voluptatem atque? Et nulla ullam
+                          facilis.
+                        </p>
+                      </div>
                       <div className="sender">
                         <Stack
                           direction={"row"}
@@ -312,6 +387,15 @@ const ChatRoom = () => {
                       </div>
                     </Box>
                   ))}
+                </div>
+                {/*CHAT FOOTER START HERE*/}
+                <div className="chat_footer">
+                  <Stack direction={"row"} spacing={2}>
+                    <Form.Control placeholder="write you message here!" />
+                    <Button variant="contained">
+                      <Send htmlColor="white" />
+                    </Button>
+                  </Stack>
                 </div>
               </>
             ) : (
@@ -368,7 +452,14 @@ const ChatRoom = () => {
               >
                 Jhone Doe
               </Typography>
-              <Rating readOnly name="read-only" value={3} />
+              <Stack
+                direction={"row"}
+                alignItems={"center"}
+                justifyContent={"center"}
+              >
+                <Rating readOnly name="read-only" value={3} />
+                <Typography>(55)</Typography>
+              </Stack>
               <Divider component={"p"} />
             </Box>
             <div className="seller_listing_in_chats">
@@ -390,6 +481,7 @@ const ChatRoom = () => {
                     >
                       monetized youtube Channel for sell
                       <Button
+                        onClick={() => navigate("/details/3")}
                         variant=""
                         sx={{
                           color: "white",

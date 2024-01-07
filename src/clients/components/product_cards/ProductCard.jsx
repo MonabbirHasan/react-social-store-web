@@ -27,6 +27,7 @@ import {
   Visibility,
   YouTube,
 } from "@mui/icons-material";
+import { Badge } from "react-bootstrap";
 const ProductCard = (props) => {
   // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
@@ -86,26 +87,37 @@ const ProductCard = (props) => {
             </>
           ) : props.product_categry === 2 ? (
             <>
-              <Avatar
-                sx={{
-                  backgroundColor: "dodgerblue",
-                  width: "30px",
-                  height: "30px",
-                }}
+              <Stack
+                direction={"row"}
+                width={"100%"}
+                justifyContent={"space-between"}
               >
-                <Facebook htmlColor="white" />
-              </Avatar>
-              <Typography
-                variant="p"
-                mt={1}
-                pl={1}
-                fontSize={14}
-                color={"gray"}
-                fontWeight={"600"}
-                textTransform={"uppercase"}
-              >
-                facebook page
-              </Typography>
+                <Box sx={{ display: "flex" }}>
+                  <Avatar
+                    sx={{
+                      backgroundColor: "dodgerblue",
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  >
+                    <Facebook htmlColor="white" />
+                  </Avatar>
+                  <Typography
+                    variant="p"
+                    paddingTop={"5px"}
+                    pl={1}
+                    fontSize={14}
+                    color={"gray"}
+                    fontWeight={"600"}
+                    textTransform={"uppercase"}
+                  >
+                    facebook page
+                  </Typography>
+                </Box>
+                <Box>
+                  <Badge bg="success">{props.badges}</Badge>
+                </Box>
+              </Stack>
             </>
           ) : props.product_categry === 3 ? (
             <>
@@ -421,7 +433,7 @@ const ProductCard = (props) => {
         {/*PRODUCT BUTTONS SECTIONS START HERE*/}
         <Stack direction={"row"} spacing={1} justifyContent={"space-between"}>
           <IconButton>
-            <FavoriteBorder htmlColor="red" sx={{ fontSize: "2rem" }} />
+            <FavoriteBorder id="favourits" htmlColor="red" />
           </IconButton>
           <Button
             onClick={() => {
