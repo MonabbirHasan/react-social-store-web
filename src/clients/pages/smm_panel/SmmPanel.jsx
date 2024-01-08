@@ -1,344 +1,261 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
-import { ArrowRightAlt, Help, LinkRounded } from "@mui/icons-material";
-import notificationsound from "../../../assets/audio/notification.mp3";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import React, { useState } from "react";
 import PageTitle from "../../components/Page_title/PageTitle";
 import yt_shop_banner from "../../../assets/img/banner1.png";
-import notificationIcon from "../../../assets/img/icon.ico";
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
-import InputGroup from "react-bootstrap/InputGroup";
-import { smmpanel } from "../../../utils/smmpanel";
-import Tabs from "react-bootstrap/Tabs";
-import { Form } from "react-bootstrap";
-import Tab from "react-bootstrap/Tab";
+import { Container } from "react-bootstrap";
 import {
   Box,
   Button,
-  Checkbox,
   FormControl,
-  FormControlLabel,
-  InputLabel,
   MenuItem,
-  OutlinedInput,
   Select,
-  Tooltip,
   Typography,
+  Stack,
+  TextField,
+  FormLabel,
+  Chip,
 } from "@mui/material";
+import {
+  Facebook,
+  Instagram,
+  Telegram,
+  Twitter,
+  WhatsApp,
+  YouTube,
+  LinkedIn,
+} from "@mui/icons-material";
+import { smm_data } from "../../../utils/smm_data";
 import "./smmpanel.css";
 const SmmPanel = () => {
-  const [key, setKey] = useState("smmpanel");
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  /**************************************
-   * ALL STATES HERE
-   *************************************/
-  const [selectedPlatform, setSelectedPlatform] = useState(null);
-  const [selectedService, setSelectedService] = useState(null);
-  const [SelectPlatform, setSelectPlatform] = useState("");
-  const [SelectService, setSelectService] = useState("");
-  const [orderQuantity, setOrderQuantity] = useState(0);
-  const [panelData, setPanelData] = useState([]);
-  const [totalCost, setTotalCost] = useState(0);
-  useEffect(() => {
-    setPanelData(smmpanel);
-  }, []);
-  /**************************************
-   * PLATFORM SELECTION FUNCTION HERE
-   *************************************/
-  const handlePlatformSelect = (event) => {
-    const platform = panelData.find((p) => p.platform === event.target.value);
+  const [selectedPlatform, setSelectedPlatform] = useState("");
+  const [selectedService, setSelectedService] = useState("");
+  const [liveSearch, setLiveSearch] = useState("");
+  const [filteredServices, setFilteredServices] = useState([]);
+  const [Quentity, setQuentity] = useState();
+  // Filter services based on the selected platform
+  const handlePlatformChange = (e) => {
+    const platform = e.target.value;
     setSelectedPlatform(platform);
-    setSelectedService(null);
+    // Filter services based on the selected platform
+    const filtered = smm_data.filter((item) => item.platform === platform);
+    setFilteredServices(filtered);
+    setSelectedService(""); // Reset selected service when platform changes
   };
-  /**************************************
-   * SERVICE SELECTION FUNCTION HERE
-   *************************************/
-  const handleServiceSelect = (event) => {
-    const service = selectedPlatform.services.find(
-      (s) => s.type === event.target.value
-    );
+  // Handle selection of service type
+  const handleServiceChange = (e) => {
+    const service = e.target.value;
     setSelectedService(service);
   };
-  /**************************************
-   * FINALY SUBMIT ORDER FUNCTION HERE
-   *************************************/
-  const handleOrderSubmit = () => {
-    if ("Notification" in window) {
-      Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          new Notification("Order Success", {
-            body: `
-            Thanks For Your We Will Message You Via Email
-            `,
-            icon: notificationIcon,
-            vibrate: [200, 100, 200], // Vibration pattern (optional)
-          });
-        }
-      });
-      const audio = new Audio();
-      audio.src = notificationsound;
-      audio.play();
-      audio.volume = 100;
-    }
+  // extands tags
+  const Extands_tags = (tags) => {
+    const exd_tag = tags.split(",");
+    return exd_tag;
   };
-  /**************************************
-   * QUANTITY SELECTION FUNCTION HERE
-   *************************************/
-  const Quantity = (e) => {
-    setOrderQuantity(e.target.value);
-    const totalCost = orderQuantity * selectedService.price_per_unit;
-    setTotalCost(totalCost);
+  //calculate total price
+  const calculate_price = (unit_price) => {
+    return eval(Quentity * unit_price);
   };
-  /***********************************************
-   * PLATFORM SELECTION CONTROL STATE HERE
-   ***********************************************/
-  const handleChangePlatformSelect = (event) => {
-    handlePlatformSelect(event);
-    setSelectPlatform(event.target.value);
+  //tags background color array
+  const colors = [
+    "#7DF9FF",
+    "#FF6EC7",
+    "#7D5BF0",
+    "#FFFF00",
+    "#B768A2",
+    "#45CDCB",
+    "#FFD300",
+    "##FF2400",
+    "#005F9E",
+    "#FFC152",
+    "#2196f3",
+  ];
+  //service search live
+  let timeoutId;
+  const live_search = () => {
+    clearTimeout(timeoutId);
+    const searchValue = liveSearch.toLowerCase();
+    // Debouncing - wait for 300 milliseconds after the user stops typing
+    timeoutId = setTimeout(() => {
+      const filteredData = smm_data.filter(
+        (item) =>
+          item.name.toLowerCase().includes(searchValue) ||
+          item.type.toLowerCase().includes(searchValue) ||
+          item.tags.toLowerCase().includes(searchValue)
+      );
+      console.log(filteredData)
+    }, 300);
   };
-  /***********************************************
-   * SERVICE SELECTION CONTROL STATE HERE
-   ***********************************************/
-  const handleChangeService = (event) => {
-    handleServiceSelect(event);
-    setSelectService(event.target.value);
-  };
+  live_search();
+
   return (
     <>
       <Header />
-      <div className="yt_shop_page">
-        <div className="yt_shop_banner">
-          <LazyLoadImage src={yt_shop_banner} />
-        </div>
-        <div className="container">
-          <div className="yt_wrapper">
-            <Tabs
-              id="controlled-tab-example"
-              style={{ justifyContent: "center", border: "none" }}
-              activeKey={key}
-              onSelect={(k) => setKey(k)}
-              className="mb-3"
-            >
-              <Tab eventKey="smmpanel" title="Smm Panel">
-                <div className="smm_panel">
-                  <PageTitle title={"find your service"} />
-                  <div className="py-1">
-                    <FormControl
-                      variant="filled"
-                      fullWidth
-                      sx={{
-                        m: 0,
-                        backgroundColor: "white",
-                        borderRadius: "5px",
-                      }}
+      <div className="smm_panel">
+        <Container>
+          <div className="smm_wrapper">
+            <PageTitle title="find your service" />
+            <TextField
+              onInput={(e) => setLiveSearch(e.target.value)}
+              fullWidth
+              variant="filled"
+              size="small"
+              label="search service!"
+            />
+            <FormControl fullWidth style={{ paddingTop: "20px" }}>
+              <FormLabel>Platform</FormLabel>
+              <Select
+                value={selectedPlatform}
+                onChange={handlePlatformChange}
+                variant="filled"
+                size="small"
+              >
+                <MenuItem value="whatsapp">
+                  <Typography pr={1}>
+                    <WhatsApp htmlColor="green" />
+                  </Typography>
+                  <Typography textTransform={"capitalize"}>whatsapp</Typography>
+                </MenuItem>
+                <MenuItem value="twitter">
+                  <Typography pr={1}>
+                    <Twitter htmlColor="dodgerblue" />
+                  </Typography>
+                  <Typography textTransform={"capitalize"}>twitter</Typography>
+                </MenuItem>
+                <MenuItem value="telegram">
+                  <Typography pr={1}>
+                    <Telegram htmlColor="dodgerblue" />
+                  </Typography>
+                  <Typography textTransform={"capitalize"}>telegram</Typography>
+                </MenuItem>
+                <MenuItem value="instagram">
+                  <Typography pr={1}>
+                    <Instagram htmlColor="purple" />
+                  </Typography>
+                  <Typography textTransform={"capitalize"}>
+                    instagram
+                  </Typography>
+                </MenuItem>
+                <MenuItem value="facebook">
+                  <Typography pr={1}>
+                    <Facebook htmlColor="dodgerblue" />
+                  </Typography>
+                  <Typography textTransform={"capitalize"}>facebook</Typography>
+                </MenuItem>
+                <MenuItem value="youtube">
+                  <Typography pr={1}>
+                    <YouTube htmlColor="red" />
+                  </Typography>
+                  <Typography textTransform={"capitalize"}>youtube</Typography>
+                </MenuItem>
+                <MenuItem value="linkedin">
+                  <Typography pr={1}>
+                    <LinkedIn htmlColor="#2196f3" />
+                  </Typography>
+                  <Typography textTransform={"capitalize"}>linkedin</Typography>
+                </MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl fullWidth style={{ paddingTop: "20px" }}>
+              <FormLabel>Service</FormLabel>
+              <Select
+                value={selectedService}
+                onChange={handleServiceChange}
+                variant="filled"
+                size="small"
+              >
+                {filteredServices.map((service, index) => (
+                  <MenuItem key={index} value={service.type}>
+                    {service.type}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl fullWidth style={{ paddingTop: "20px" }}>
+              <FormLabel>Description</FormLabel>
+              <Box
+                sx={{
+                  backgroundColor: "#eee",
+                  width: "100%",
+                  padding: "20px",
+                  borderRadius: "10px",
+                }}
+              >
+                {selectedService && (
+                  <div>
+                    <Typography
+                      variant="h5"
+                      py={2}
+                      textTransform={"capitalize"}
                     >
-                      <InputLabel id="demo-select-small-label">
-                        Select a platform
-                      </InputLabel>
-                      <Select
-                        labelId="demo-simple-select-filled-label"
-                        id="demo-simple-select-filled"
-                        label="Select a platform"
-                        value={SelectPlatform}
-                        onChange={handleChangePlatformSelect}
-                        input={<OutlinedInput label="Name" />}
-                      >
-                        <MenuItem value="hel">Platform</MenuItem>
-                        {panelData.map((platform) => (
-                          <MenuItem
-                            key={platform.platform}
-                            value={platform.platform}
-                          >
-                            {platform.platform}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </div>
-                  <div className="py-1">
-                    {selectedPlatform && (
-                      <FormControl
-                        variant="filled"
-                        fullWidth
-                        sx={{
-                          m: 0,
-                          backgroundColor: "white",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          service for {selectedPlatform.platform}
-                        </InputLabel>
-
-                        <Select
-                          labelId="demo-simple-select-filled-label"
-                          id="demo-simple-select-filled"
-                          label="services for"
-                          value={SelectService}
-                          onChange={handleChangeService}
-                          input={<OutlinedInput label="Name" />}
-                        >
-                          <MenuItem value="hel">Platform</MenuItem>
-
-                          {selectedPlatform.services.map((service) => (
-                            <MenuItem key={service.type} value={service.type}>
-                              {service.name} - $
-                              {service.price_per_unit.toFixed(2)} per unit
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    )}
-                  </div>
-                  <div className="py-1">
-                    <InputGroup className="">
-                      <InputGroup.Text id="basic-addon1">
-                        Quantity
-                      </InputGroup.Text>
-                      <Form.Control
-                        type="number"
-                        value={orderQuantity}
-                        onChange={(e) => Quantity(e)}
-                        aria-label="Service"
-                        aria-describedby="basic-addon1"
-                      />
-                    </InputGroup>
-                  </div>
-                  <div className="py-1">
-                    <InputGroup className="">
-                      <InputGroup.Text id="basic-addon1">
-                        <LinkRounded />
-                      </InputGroup.Text>
-                      <Form.Control
-                        placeholder="Enter The LInk"
-                        aria-label="Service"
-                        aria-describedby="basic-addon1"
-                      />
-                    </InputGroup>
-                  </div>
-                  <div className="py-1">
-                    <InputGroup className="">
-                      <InputGroup.Text id="basic-addon1">
-                        Total Cost $
-                      </InputGroup.Text>
-                      <Form.Control
-                        placeholder={`$ ${totalCost}`}
-                        aria-label="Service"
-                        readOnly
-                        aria-readonly
-                        aria-describedby="basic-addon1"
-                      />
-                    </InputGroup>
-                  </div>
-                  <div className="py-1">
-                    {selectedService && (
-                      <Box
-                        sx={{
-                          backgroundColor: "#eee",
-                          borderRadius: "10px",
-                          padding: "10px",
-                        }}
-                      >
-                        <Typography padding={0.2} textTransform={"capitalize"}>
-                          <strong>
-                            description
-                            <ArrowRightAlt />{" "}
-                          </strong>
-                          {selectedService.description}
-                        </Typography>
-                        <Typography padding={0.2} textTransform={"capitalize"}>
-                          <strong>
-                            platform
-                            <ArrowRightAlt />{" "}
-                          </strong>
-                          {selectedPlatform.platform}
-                        </Typography>
-                        <Typography padding={0.2} textTransform={"capitalize"}>
-                          <strong>
-                            service
-                            <ArrowRightAlt />{" "}
-                          </strong>
-                          {selectedService.name}
-                        </Typography>
-                        <Typography padding={0.2} textTransform={"capitalize"}>
-                          <strong>
-                            total cost
-                            <ArrowRightAlt />{" "}
-                          </strong>
-                          ${totalCost}
-                        </Typography>
-                        <Typography padding={0.2} textTransform={"capitalize"}>
-                          <strong>
-                            delivery time
-                            <ArrowRightAlt />{" "}
-                          </strong>
-                          {selectedService.delivery_time}
-                        </Typography>
-                        <Typography padding={0.2} textTransform={"capitalize"}>
-                          <strong>
-                            Guarantee <ArrowRightAlt />
-                          </strong>
-                          {selectedService.Guarantee}
-                        </Typography>
-                        <Typography padding={0.2} textTransform={"capitalize"}>
-                          <strong>
-                            Quantity <ArrowRightAlt />
-                          </strong>
-                          {orderQuantity}
-                        </Typography>
-                      </Box>
-                    )}
-                  </div>
-                  <FormControlLabel
-                    control={<Checkbox {...label} defaultChecked />}
-                    label="YES, I HAVE CONFIRMED THE ORDER!"
-                  />
-                  <div className="mt-3">
-                    <Button
-                      sx={{ textTransform: "capitalize" }}
-                      variant="contained"
-                      onClick={handleOrderSubmit}
-                    >
-                      place order
-                    </Button>
-                  </div>
-                </div>
-              </Tab>
-              <Tab eventKey="mass_order" title="Mass Order">
-                <div className="smm_panel">
-                  <InputLabel>
-                    <Typography>
-                      One order per line in format
-                      <Tooltip title="Here you can place your orders easy! Please make sure you check all the prices and delivery times before you place a order! After a order submited it cannot be canceled.">
-                        <Help />
-                      </Tooltip>
+                      Details for {selectedService} on {selectedPlatform}
                     </Typography>
-                  </InputLabel>
-                  <textarea
-                    className="form-control mt-2"
-                    name=""
-                    id=""
-                    cols="40"
-                    rows="10"
-                  ></textarea>
-                  <FormControlLabel
-                    control={<Checkbox {...label} defaultChecked />}
-                    label="YES, I HAVE CONFIRMED THE ORDER!"
-                  />
-                  <div className="mt-3">
-                    <Button
-                      variant="contained"
-                      sx={{ textTransform: "capitalize" }}
-                    >
-                      place order
-                    </Button>
+                    {/* Display details for the selected service */}
+                    {filteredServices
+                      .filter((service) => service.type === selectedService)
+                      .map((details, index) => (
+                        <div key={index}>
+                          <Typography textTransform={"capitalize"}>
+                            Type: {details.type}
+                          </Typography>
+                          <Typography textTransform={"capitalize"}>
+                            Price $: {details.price_per_unit}
+                          </Typography>
+                          <Typography textTransform={"capitalize"}>
+                            total Price $:{" "}
+                            {calculate_price(details.price_per_unit)}
+                          </Typography>
+                          <Typography textTransform={"capitalize"}>
+                            time: {details.delivery_time}
+                          </Typography>
+                          <Typography textTransform={"capitalize"}>
+                            min quantity: {details.min_quantity}
+                          </Typography>
+                          <Typography textTransform={"capitalize"}>
+                            max quantity: {details.max_quantity}
+                          </Typography>
+                          <Typography pt={1} textTransform={"lowercase"}>
+                            {Extands_tags(details.tags).map((tag) => (
+                              <Chip
+                                style={{
+                                  margin: "2px",
+                                  backgroundColor:
+                                    colors[
+                                      Math.floor(Math.random() * colors.length)
+                                    ],
+                                  color: "#111",
+                                }}
+                                label={tag}
+                              />
+                            ))}
+                          </Typography>
+                          {/* Display other relevant fields */}
+                        </div>
+                      ))}
                   </div>
-                </div>
-              </Tab>
-            </Tabs>
+                )}
+              </Box>
+            </FormControl>
+            <FormControl sx={{ pt: 2 }} fullWidth>
+              <FormLabel>Enter The Link</FormLabel>
+              <TextField fullWidth variant="filled" size="small" />
+            </FormControl>
+            <FormControl sx={{ pt: 2 }} fullWidth>
+              <FormLabel>Quantity</FormLabel>
+              <TextField
+                onChange={(e) => setQuentity(e.target.value)}
+                fullWidth
+                variant="filled"
+                size="small"
+              />
+            </FormControl>
+            <FormControl sx={{ pt: 2 }}>
+              <Button variant="contained">Order Now</Button>
+            </FormControl>
           </div>
-        </div>
+        </Container>
       </div>
       <Footer />
     </>

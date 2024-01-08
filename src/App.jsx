@@ -29,6 +29,7 @@ import {
   ServiceRequest,
   ProductDetails,
   ChatRoom,
+  Sample
 } from "./clients/pages/index";
 function App() {
   return (

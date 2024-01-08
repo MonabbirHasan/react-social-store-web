@@ -13,3 +13,4 @@ export { default as Service } from "./service/Service";
 export { default as About } from "./about/About";
 export { default as Blogs } from "./blogs/Blogs";
 export { default as Home } from "./home/Home";
+export { default as Sample } from "./sample/Sample";
