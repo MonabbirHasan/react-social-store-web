@@ -1,11 +1,6 @@
 import ProductCard from "../../components/product_cards/ProductCard";
 import Header from "../../components/common/header/Header";
-import {
-  Col,
-  Container,
-  FormLabel,
-  Row,
-} from "react-bootstrap";
+import { Col, Container, FormLabel, Row } from "react-bootstrap";
 import "../../../assets/css/responsive.css";
 import "./products.css";
 import {
@@ -238,6 +233,7 @@ const Products = () => {
               {Array.from({ length: 12 }, (x) => x + x).map((items) => (
                 <Col key={items}>
                   <ProductCard
+                    badges="sold"
                     title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, veniam."
                     description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, veniam."
                     listing_id="OM32343"

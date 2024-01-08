@@ -68,22 +68,39 @@ const ProductCard = (props) => {
         <Box pb={2} display={"flex"}>
           {props.product_categry === 1 ? (
             <>
-              <Avatar
-                sx={{ backgroundColor: "red", width: "30px", height: "30px" }}
+              <Stack
+                direction={"row"}
+                width={"100%"}
+                justifyContent={"space-between"}
               >
-                <YouTube htmlColor="white" />
-              </Avatar>
-              <Typography
-                variant="p"
-                mt={1}
-                pl={1}
-                fontSize={14}
-                color={"gray"}
-                fontWeight={"600"}
-                textTransform={"uppercase"}
-              >
-                Youtube Channel
-              </Typography>
+                <Box sx={{ display: "flex" }}>
+                  <Avatar
+                    sx={{
+                      backgroundColor: "red",
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  >
+                    <YouTube htmlColor="white" />
+                  </Avatar>
+                  <Typography
+                    variant="p"
+                    mt={1}
+                    pl={1}
+                    fontSize={14}
+                    color={"gray"}
+                    fontWeight={"600"}
+                    textTransform={"uppercase"}
+                  >
+                    Youtube Channel
+                  </Typography>
+                </Box>
+                <Box>
+                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                    {props.badges}
+                  </Badge>
+                </Box>
+              </Stack>
             </>
           ) : props.product_categry === 2 ? (
             <>
@@ -115,74 +132,115 @@ const ProductCard = (props) => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Badge bg="success">{props.badges}</Badge>
+                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                    {props.badges}
+                  </Badge>
                 </Box>
               </Stack>
             </>
           ) : props.product_categry === 3 ? (
             <>
-              <Avatar
-                sx={{ backgroundColor: "#f0f", width: "30px", height: "30px" }}
+              <Stack
+                direction={"row"}
+                width={"100%"}
+                justifyContent={"space-between"}
               >
-                <Instagram htmlColor="white" />
-              </Avatar>
-              <Typography
-                variant="p"
-                mt={1}
-                pl={1}
-                fontSize={14}
-                color={"gray"}
-                fontWeight={"600"}
-                textTransform={"uppercase"}
-              >
-                instagram profile
-              </Typography>
+                <Box sx={{ display: "flex" }}>
+                  <Avatar
+                    sx={{
+                      backgroundColor: "#f0f",
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  >
+                    <Instagram htmlColor="white" />
+                  </Avatar>
+                  <Typography
+                    variant="p"
+                    mt={1}
+                    pl={1}
+                    fontSize={14}
+                    color={"gray"}
+                    fontWeight={"600"}
+                    textTransform={"uppercase"}
+                  >
+                    instagram profile
+                  </Typography>
+                </Box>
+                <Box>
+                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                    {props.badges}
+                  </Badge>
+                </Box>
+              </Stack>
             </>
           ) : props.product_categry === 4 ? (
             <>
-              <Avatar
-                sx={{
-                  backgroundColor: "dodgerblue",
-                  width: "30px",
-                  height: "30px",
-                }}
+              <Stack
+                direction={"row"}
+                width={"100%"}
+                justifyContent={"space-between"}
               >
-                <Twitter htmlColor="white" />
-              </Avatar>
-              <Typography
-                variant="p"
-                mt={1}
-                pl={1}
-                fontSize={14}
-                color={"gray"}
-                fontWeight={"600"}
-                textTransform={"uppercase"}
-              >
-                twitter profile
-              </Typography>
+                <Box sx={{ display: "flex" }}>
+                  <Avatar
+                    sx={{
+                      backgroundColor: "dodgerblue",
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  >
+                    <Twitter htmlColor="white" />
+                  </Avatar>
+                  <Typography
+                    variant="p"
+                    mt={1}
+                    pl={1}
+                    fontSize={14}
+                    color={"gray"}
+                    fontWeight={"600"}
+                    textTransform={"uppercase"}
+                  >
+                    twitter profile
+                  </Typography>
+                </Box>
+                <Box>
+                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                    {props.badges}
+                  </Badge>
+                </Box>
+              </Stack>
             </>
           ) : props.product_categry === 5 ? (
             <>
-              <Avatar
-                sx={{
-                  backgroundColor: "dodgerblue",
-                  width: "30px",
-                  height: "30px",
-                }}
-              >
-                <Telegram htmlColor="white" />
-              </Avatar>
-              <Typography
-                variant="p"
-                mt={1}
-                pl={1}
-                fontSize={14}
-                color={"gray"}
-                fontWeight={"600"}
-                textTransform={"uppercase"}
-              >
-                telegram channel
-              </Typography>
+              <Stack>
+                <Box>
+                  <Avatar
+                    sx={{
+                      backgroundColor: "dodgerblue",
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  >
+                    <Telegram htmlColor="white" />
+                  </Avatar>
+                  <Typography
+                    variant="p"
+                    mt={1}
+                    pl={1}
+                    fontSize={14}
+                    color={"gray"}
+                    fontWeight={"600"}
+                    textTransform={"uppercase"}
+                  >
+                    telegram channel
+                  </Typography>
+                </Box>
+                <Box>
+                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                    {props.badges}
+                  </Badge>
+                </Box>
+              </Stack>
             </>
           ) : (
             "unknown"

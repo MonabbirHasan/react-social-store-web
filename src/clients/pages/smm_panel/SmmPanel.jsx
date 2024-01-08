@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import PageTitle from "../../components/Page_title/PageTitle";
-import yt_shop_banner from "../../../assets/img/banner1.png";
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
 import { Container } from "react-bootstrap";
@@ -13,7 +12,6 @@ import {
   MenuItem,
   Select,
   Typography,
-  Stack,
   TextField,
   FormLabel,
   Chip,
@@ -23,7 +21,6 @@ import {
   Instagram,
   Telegram,
   Twitter,
-  WhatsApp,
   YouTube,
   LinkedIn,
 } from "@mui/icons-material";
@@ -72,24 +69,6 @@ const SmmPanel = () => {
     "#FFC152",
     "#2196f3",
   ];
-  //service search live
-  let timeoutId;
-  const live_search = () => {
-    clearTimeout(timeoutId);
-    const searchValue = liveSearch.toLowerCase();
-    // Debouncing - wait for 300 milliseconds after the user stops typing
-    timeoutId = setTimeout(() => {
-      const filteredData = smm_data.filter(
-        (item) =>
-          item.name.toLowerCase().includes(searchValue) ||
-          item.type.toLowerCase().includes(searchValue) ||
-          item.tags.toLowerCase().includes(searchValue)
-      );
-      console.log(filteredData)
-    }, 300);
-  };
-  live_search();
-
   return (
     <>
       <Header />
@@ -97,13 +76,6 @@ const SmmPanel = () => {
         <Container>
           <div className="smm_wrapper">
             <PageTitle title="find your service" />
-            <TextField
-              onInput={(e) => setLiveSearch(e.target.value)}
-              fullWidth
-              variant="filled"
-              size="small"
-              label="search service!"
-            />
             <FormControl fullWidth style={{ paddingTop: "20px" }}>
               <FormLabel>Platform</FormLabel>
               <Select
@@ -112,12 +84,6 @@ const SmmPanel = () => {
                 variant="filled"
                 size="small"
               >
-                <MenuItem value="whatsapp">
-                  <Typography pr={1}>
-                    <WhatsApp htmlColor="green" />
-                  </Typography>
-                  <Typography textTransform={"capitalize"}>whatsapp</Typography>
-                </MenuItem>
                 <MenuItem value="twitter">
                   <Typography pr={1}>
                     <Twitter htmlColor="dodgerblue" />
