@@ -40,3 +40,71 @@
     const apiKey = "AIzaSyD2SU-XlHt237OrI8wmAj1OH-wW7Mjpa0I";
     getYouTubeChannelInfo(apiKey, channelId);
   }, []);
+// estimate channel price calculation first formula
+  class YouTubeChannelPriceCalculator {
+    constructor(monthlyIncome, views, subscribers) {
+      this.monthlyIncome = monthlyIncome;
+      this.views = views;
+      this.subscribers = subscribers;
+    }
+  
+    calculateChannelPrice() {
+      const maxViews = 1000000000; // Maximum views for normalization (adjust as needed)
+      const maxSubscribers = 10000000; // Maximum subscribers for normalization (adjust as needed)
+  
+      const normalizedViews = this.views / maxViews;
+      const normalizedSubscribers = this.subscribers / maxSubscribers;
+  
+      // You can assign weights based on importance
+      const viewWeight = 0.6;
+      const subscriberWeight = 0.4;
+  
+      const weightedViews = normalizedViews * viewWeight;
+      const weightedSubscribers = normalizedSubscribers * subscriberWeight;
+  
+      // Calculate the total weighted score
+      const totalScore = weightedViews + weightedSubscribers;
+  
+      // Example estimation formula: multiply total score by monthly income
+      const estimatedPrice = totalScore * this.monthlyIncome;
+  
+      return estimatedPrice;
+    }
+  }
+  
+  // Example usage:
+  const monthlyIncome = 5000; // Replace with actual income
+  const views = 5000000; // Replace with actual view count
+  const subscribers = 1000000; // Replace with actual subscriber count
+  
+  const calculator = new YouTubeChannelPriceCalculator(monthlyIncome, views, subscribers);
+  const estimatedPrice = calculator.calculateChannelPrice();
+  console.log(`Estimated channel price: $${estimatedPrice}`);
+  // estimate price calculation second formula
+function calculateChannelPrice(monthlyIncome, totalVideos, totalViews, subscribers) {
+  // Define weights for each metric (you can adjust these as needed)
+  const incomeWeight = 0.5;
+  const videoWeight = 0.2;
+  const viewWeight = 0.2;
+  const subscriberWeight = 0.1;
+
+  // Calculate weighted scores for each metric
+  const incomeScore = monthlyIncome * incomeWeight;
+  const videoScore = totalVideos * videoWeight;
+  const viewScore = totalViews * viewWeight;
+  const subscriberScore = subscribers * subscriberWeight;
+
+  // Sum up the weighted scores to get the channel's estimated value
+  const channelValue = incomeScore + videoScore + viewScore + subscriberScore;
+
+  return channelValue;
+}
+
+// Example usage
+const monthlyIncome = 5000; // Replace with actual monthly income
+const totalVideos = 100; // Replace with actual total videos
+const totalViews = 1000000; // Replace with actual total views
+const subscribers = 50000; // Replace with actual subscriber count
+
+const estimatedPrice = calculateChannelPrice(monthlyIncome, totalVideos, totalViews, subscribers);
+console.log(`The estimated price of the channel is $${estimatedPrice}`);

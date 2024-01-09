@@ -4,22 +4,39 @@ import {
   Avatar,
   Box,
   Button,
+  Chip,
   Divider,
   FormControl,
   FormLabel,
+  IconButton,
   MenuItem,
   Select,
   Stack,
   TextField,
+  Typography,
 } from "@mui/material";
-import { Cloud, Delete, Image } from "@mui/icons-material";
-import React, { useState } from "react";
-const Youtube = ({TabTitle}) => {
+import { Cloud, CopyAll, Delete, Image } from "@mui/icons-material";
+import React, { useEffect, useState } from "react";
+import { Form } from "react-bootstrap";
+import YouTubeChannelInfo from "../../../../utils/youtubedata";
+import { formatNumber } from "../../../../utils/formatNumber";
+const Youtube = ({ TabTitle }) => {
+  const [channel_url, setChannel_url] = useState("");
   const [ChannelCategory, setChannelCategory] = useState("");
   const [CGuidline, setCGuidline] = useState("");
   const [CopyWrite, setCopyWrite] = useState("");
   const [Monetized, setMonetized] = useState("");
   const [Waring, setWaring] = useState("");
+  const [HiddenSubscriberCount, setHiddenSubscriberCount] = useState("");
+  const [ChannelCustomUrl, setChannelCustomUrl] = useState("");
+  const [SubscriberCount, setSubscriberCount] = useState("");
+  const [DefaultLanguage, setDefaultLanguage] = useState("");
+  const [ChannelCountry, setChannelCountry] = useState("");
+  const [PublishedAt, setPublishedAt] = useState("");
+  const [VideoCount, setVideoCount] = useState("");
+  const [ViewCount, setViewCount] = useState("");
+  const [LikesCount, setLikesCount] = useState("");
+  //ALL INPUT AND SELECT BOX CHANGE CONTROLL
   const HandleChangeChannelCategory = (event) => {
     setChannelCategory(event.target.value);
   };
@@ -35,21 +52,66 @@ const Youtube = ({TabTitle}) => {
   const HandleChangeMonetized = (event) => {
     setMonetized(event.target.value);
   };
+  /**********************************
+   *FETCH YOUTUBE CHANNEL INFO
+   **********************************/
+  async function find_channel_data() {
+    if (channel_url === "") {
+      alert("please provide channel url");
+    } else {
+      const youtubeChannelURL = channel_url;
+      const apiKey = "AIzaSyD2SU-XlHt237OrI8wmAj1OH-wW7Mjpa0I";
+      const youtubeInfo = new YouTubeChannelInfo(apiKey, youtubeChannelURL);
+      await youtubeInfo.fetchChannelInfo().then((channelData) => {
+        const hiddenSubscriberCount =
+          channelData.statistics.hiddenSubscriberCount;
+        const totalLikes = channelData.statistics.likeCount;
+        const subscriberCount = channelData.statistics.subscriberCount;
+        const defaultLanguage = channelData.snippet.defaultLanguage;
+        const videoCount = channelData.statistics.videoCount;
+        const publishedAt = channelData.snippet.publishedAt;
+        const viewCount = channelData.statistics.viewCount;
+        const customUrl = channelData.snippet.customUrl;
+        const country = channelData.snippet.country;
+        setHiddenSubscriberCount(hiddenSubscriberCount);
+        setDefaultLanguage(defaultLanguage);
+        setSubscriberCount(subscriberCount);
+        setChannelCustomUrl(customUrl);
+        setPublishedAt(publishedAt);
+        setChannelCountry(country);
+        setVideoCount(videoCount);
+        setLikesCount(totalLikes);
+        setViewCount(viewCount);
+      });
+    }
+  }
+
   return (
     <div className="youtube_listing">
       <div className="youtube_listing_wrapper">
         <Box>{TabTitle}</Box>
         <FormControl fullWidth sx={{ py: 1 }}>
           <FormLabel>Past Channel Link</FormLabel>
-          <TextField
-            labelId="demo-simple-input-label"
-            onChange={{}}
-            color="success"
-            variant="filled"
-            label=""
-            size="small"
-          />
+          <Stack direction={"row"}>
+            <TextField
+              fullWidth
+              labelId="demo-simple-input-label"
+              value={channel_url}
+              onChange={(e) => setChannel_url(e.target.value)}
+              color="success"
+              variant="filled"
+              label=""
+              size="small"
+            />
+            <Button onClick={find_channel_data} variant="outlined">
+              Find
+            </Button>
+          </Stack>
         </FormControl>
+        <Chip label={ChannelCustomUrl} />
+        <Chip label={"Subscriber " + formatNumber(SubscriberCount)} />
+        <Chip label={"Video " + VideoCount} />
+        <Chip label={"View " + formatNumber(ViewCount)} />
         <FormControl fullWidth sx={{ py: 1 }}>
           <FormLabel>Price</FormLabel>
           <TextField
@@ -222,6 +284,31 @@ const Youtube = ({TabTitle}) => {
                 />
               </Box>
             ))}
+          </Stack>
+        </FormControl>
+        <FormControl fullWidth sx={{ py: 3 }}>
+          <FormLabel
+            sx={{
+              textTransform: "capitalize",
+              pb: 2,
+              fontWeight: "500",
+              color: "gray",
+            }}
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            deserunt alias consequuntur animi. Tempore ad pariatur, iste enim
+            beatae ipsam quam id veniam nam sunt. Maiores asperiores velit
+            mollitia facere.
+          </FormLabel>
+          <Stack direction={"row"}>
+            <Form.Control
+              readOnly
+              value="956b6e7cb7956b6e7cb7956b6e7cb7956b6e7cb7956b6e7cb7956b6e7cb7956b6e7cb7"
+              style={{ backgroundColor: "#eee", border: "none" }}
+            />
+            <IconButton>
+              <CopyAll htmlColor="green" />
+            </IconButton>
           </Stack>
         </FormControl>
         <FormControl sx={{ py: 2 }}>
