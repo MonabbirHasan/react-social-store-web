@@ -8,6 +8,7 @@ import { Col, Container, Modal, Row } from "react-bootstrap";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import "./product_details.css";
+import "../../../assets/css/responsive.css";
 import FileSaver, { saveAs } from "file-saver";
 import {
   Alert,

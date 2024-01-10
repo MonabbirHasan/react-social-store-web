@@ -1,21 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./parmission_management.css";
+import { Container, Col, Form, Row } from "react-bootstrap";
+import "../../../../assets/css/responsive.css";
 import {
-  Container,
-  FloatingLabel,
-  Col,
-  Form,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
-import {
-  Avatar,
-  Badge,
   Box,
-  Divider,
   IconButton,
-  List,
-  ListItemButton,
   Stack,
   Typography,
   Button,
@@ -27,30 +16,20 @@ import {
   TableCell,
   TableBody,
   TableContainer,
-  FormControlLabel,
-  Checkbox,
-  TextField,
   MenuItem,
   Select,
   InputLabel,
   Switch,
 } from "@mui/material";
-import {
-  Attachment,
-  Circle,
-  Delete,
-  Edit,
-  Photo,
-  Send,
-} from "@mui/icons-material";
-import Parmission_switch from "./Parmission_switch"
+import { Delete, Edit } from "@mui/icons-material";
+// import Parmission_switch from "./Parmission_switch";
 const PermissionMangement = () => {
-  const [client_permission_all, setClient_permission_all] = useState(false);
-  const FontStyle = {
-    textTransform: "capitalize",
-    fontWeight: "200",
-    fontSize: "14px",
-  };
+  // const [client_permission_all, setClient_permission_all] = useState(false);
+  // const FontStyle = {
+  //   textTransform: "capitalize",
+  //   fontWeight: "200",
+  //   fontSize: "14px",
+  // };
   const perimssion_items = {
     padding: "10px",
     boxShadow: "-1px -1px 3px #eee,1px 1px 3px #eee",
@@ -61,9 +40,9 @@ const PermissionMangement = () => {
     display: "inline-block",
   };
   const [full_permission, setFullPermission] = useState(false);
-  function generateRandomHexColor() {
-    return "#" + Math.floor(Math.random() * 16777215).toString(16);
-  }
+  // function generateRandomHexColor() {
+  //   return "#" + Math.floor(Math.random() * 16777215).toString(16);
+  // }
 
   return (
     <div className="parmission_management">

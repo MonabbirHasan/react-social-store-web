@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
 import "./admin_chat.css";
 import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import {
@@ -6,13 +7,11 @@ import {
   Box,
   Button,
   IconButton,
-  List,
-  ListItem,
-  ListItemButton,
   MenuItem,
   Stack,
   Typography,
 } from "@mui/material";
+import "../../../../assets/css/responsive.css";
 import {
   AttachFile,
   Call,

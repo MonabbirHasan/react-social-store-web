@@ -12,9 +12,9 @@ import subscriber_icon from "../../../assets/img/users-icon.png";
 import categories_icon from "../../../assets/img/categories.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import language_icon from "../../../assets/img/lang.png";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-multi-carousel";
 import "./product_card.css";
 import {
   CheckCircle,
@@ -96,7 +96,10 @@ const ProductCard = (props) => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                  <Badge
+                    style={{ textTransform: "capitalize" }}
+                    bg={props.badges === "sold" ? "danger" : "success"}
+                  >
                     {props.badges}
                   </Badge>
                 </Box>
@@ -132,7 +135,10 @@ const ProductCard = (props) => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                  <Badge
+                    style={{ textTransform: "capitalize" }}
+                    bg={props.badges === "sold" ? "danger" : "success"}
+                  >
                     {props.badges}
                   </Badge>
                 </Box>
@@ -168,7 +174,10 @@ const ProductCard = (props) => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                  <Badge
+                    style={{ textTransform: "capitalize" }}
+                    bg={props.badges === "sold" ? "danger" : "success"}
+                  >
                     {props.badges}
                   </Badge>
                 </Box>
@@ -204,7 +213,10 @@ const ProductCard = (props) => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                  <Badge
+                    style={{ textTransform: "capitalize" }}
+                    bg={props.badges === "sold" ? "danger" : "success"}
+                  >
                     {props.badges}
                   </Badge>
                 </Box>
@@ -236,7 +248,10 @@ const ProductCard = (props) => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Badge bg={props.badges === "sold" ? "danger" : "success"}>
+                  <Badge
+                    style={{ textTransform: "capitalize" }}
+                    bg={props.badges === "sold" ? "danger" : "success"}
+                  >
                     {props.badges}
                   </Badge>
                 </Box>

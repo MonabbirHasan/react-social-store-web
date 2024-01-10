@@ -1,13 +1,8 @@
-import React from "react";
 import "./payout_management.css";
-import { FloatingLabel, Form, Container, Badge } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 import {
-  Avatar,
   Button,
-  IconButton,
-  MenuItem,
   Paper,
-  Select,
   Table,
   TableBody,
   TableCell,
@@ -16,7 +11,8 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Delete, Edit } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
 const PayRequestManagement = () => {
   return (
     <div className="payout_management">
@@ -52,8 +48,8 @@ const PayRequestManagement = () => {
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell align="right">jhon</TableCell>
-                    <TableCell align="right" style={{float:'right'}}>
-                      <Form.Select style={{width:'100px'}}>
+                    <TableCell align="right" style={{ float: "right" }}>
+                      <Form.Select style={{ width: "100px" }}>
                         <option value="1">panding</option>
                         <option value="2">rejected</option>
                         <option value="3">confirm</option>

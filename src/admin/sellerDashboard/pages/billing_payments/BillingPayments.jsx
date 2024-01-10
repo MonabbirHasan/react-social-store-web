@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./billing_payments.css";
 // import AddFunds from "./AddFunds";
 import { AddFunds, WithdrawalFunds } from "./index";
+import "../../../../assets/css/responsive.css";
 const BillingPayments = (props) => {
   const HandleOpenEarningsPage = () => {
     props.openEarnings();

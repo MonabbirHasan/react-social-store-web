@@ -1,5 +1,4 @@
-import React from 'react'
-
+import "../../../../assets/css/responsive.css";
 const PaymethodMangement = () => {
   return (
     <div>PaymethodMangement</div>

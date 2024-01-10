@@ -1,8 +1,7 @@
-import React from "react";
+
 import "./client_managment.css";
 import { Container, FloatingLabel, Form } from "react-bootstrap";
 import {
-  Avatar,
   Button,
   IconButton,
   Paper,
@@ -15,6 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
 const ClientsMangement = () => {
   return (
     <div className="client_managment">

@@ -3,6 +3,7 @@ import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import { ArrowCircleLeft, Lock } from "@mui/icons-material";
 import { Badge, Col, Container, Row } from "react-bootstrap";
 import "./dailytaskads.css";
+import "../../../../assets/css/responsive.css";
 const DailyTaskAds = (props) => {
   const initData = Array.from({ length: 102 }, (_, i) => ({
     _id: (i + 1).toString(),

@@ -13,6 +13,7 @@ import {
   Typography,
   Pagination as MUIPaginations,
 } from "@mui/material";
+import "../../../../assets/css/responsive.css";
 import { Delete, Edit } from "@mui/icons-material";
 const Orders = () => {
   const [OrderTabs, setOrderTabs] = useState(1);

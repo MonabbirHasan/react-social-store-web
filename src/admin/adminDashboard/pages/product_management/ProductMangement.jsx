@@ -1,5 +1,4 @@
-import React from 'react'
-
+import "../../../../assets/css/responsive.css";
 const ProductMangement = () => {
   return (
     <div>ProductMangement</div>

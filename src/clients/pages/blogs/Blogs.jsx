@@ -14,6 +14,7 @@ import {
   Search,
 } from "@mui/icons-material";
 import "./blogs.css";
+import "../../../assets/css/responsive.css";
 const Blogs = () => {
   let [post_search_input, setPost_search_input] = useState(null);
   /************************************

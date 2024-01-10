@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { Alert, Box, Tab, Tabs } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import "../../../../assets/css/responsive.css";
 import {
   Service_Title,
   Instagram,

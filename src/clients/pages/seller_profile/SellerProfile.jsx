@@ -10,6 +10,7 @@ import ProductCard from "../../components/product_cards/ProductCard";
 import { Row, Col, Container, Badge } from "react-bootstrap";
 import "./seller_profile.css";
 import Header from "../../components/common/header/Header";
+import "../../../assets/css/responsive.css";
 import {
   BadgeOutlined,
   CheckCircle,

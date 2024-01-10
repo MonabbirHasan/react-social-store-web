@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+/* eslint-disable no-unused-vars */
+import  { useEffect, useState } from "react";
 import "./user_management.css";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { Delete, Edit } from "@mui/icons-material";
-import { InputGroup, Toast } from "react-bootstrap";
 import DataTable from "datatables.net-dt";
 import Form from "react-bootstrap/Form";
+import "../../../../assets/css/responsive.css";
 import {
   Alert,
   Avatar,
@@ -28,21 +29,21 @@ const UserMangement = () => {
   /****************************************
    * USER FORM BASIC CSS STYLE HERE
    ****************************************/
-  const paragraphStyle = {
-    textTransform: "capitalize",
-    fontSize: "18px",
-    color: "#919191",
-    // fontWeight:'600',
-    py: 2,
-    fontFamily: "fantasy",
-    letterSpacing: "2px",
-  };
+  // const paragraphStyle = {
+  //   textTransform: "capitalize",
+  //   fontSize: "18px",
+  //   color: "#919191",
+  //  fontWeight:'600',
+  //   py: 2,
+  //   fontFamily: "fantasy",
+  //   letterSpacing: "2px",
+  // };
   const text_capitalized = {
     textTransform: "capitalize",
   };
-  const text_color = {
-    color: "white",
-  };
+  // const text_color = {
+  //   color: "white",
+  // };
   /*************************************************
    * USERS INFORMATION SAVING FUNCTION START HERE
    *************************************************/

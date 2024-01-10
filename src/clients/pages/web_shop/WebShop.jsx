@@ -13,6 +13,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { Search } from "@mui/icons-material";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import "../../../assets/css/responsive.css";
 import "./web_shop.css";
 const WebShop = () => {
   let [Filter_GoogleAdsVerified, setGoogleAdsVerified] = useState("");

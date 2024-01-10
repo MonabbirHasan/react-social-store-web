@@ -1,4 +1,3 @@
-import React from "react";
 import "./course_managment.css";
 import {
   Badge,
@@ -22,7 +21,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete, Edit, PictureAsPdf } from "@mui/icons-material";
-
+import "../../../../assets/css/responsive.css";
 const CourseMangement = () => {
   return (
     <div className="course_managment">

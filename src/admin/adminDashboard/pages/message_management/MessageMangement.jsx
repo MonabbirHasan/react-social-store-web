@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
 import "./message_managment.css";
 import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import {
@@ -12,6 +12,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import "../../../../assets/css/responsive.css";
 import { Attachment, Circle, Photo, Send } from "@mui/icons-material";
 const MessageMangement = () => {
   return (

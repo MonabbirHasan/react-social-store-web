@@ -4,6 +4,7 @@ import "./events_management.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Modal from "react-bootstrap/Modal";
+import "../../../../assets/css/responsive.css";
 import {
   Button,
   Collapse,

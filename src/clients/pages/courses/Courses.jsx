@@ -11,6 +11,7 @@ import Header from "../../components/common/header/Header";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
+import "../../../assets/css/responsive.css";
 import "./courses.css";
 import { CRating } from "./CRating";
 const Courses = () => {

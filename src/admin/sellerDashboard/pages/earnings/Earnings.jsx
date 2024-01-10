@@ -3,6 +3,7 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./earnings.css";
+import "../../../../assets/css/responsive.css";
 const Earnings = () => {
   const [ShowFdoucmentModal, setShowFdoucmentModal] = useState(false);
   const handleCloseFdoucmentModal = () => setShowFdoucmentModal(false);

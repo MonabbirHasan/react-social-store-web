@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import "./product_listing.css";
+import "../../../../assets/css/responsive.css";
 import { Delete, Edit, PushPinOutlined } from "@mui/icons-material";
 const Product_listing = (props) => {
   const [LisgingTab, setLisgingTab] = useState(1);

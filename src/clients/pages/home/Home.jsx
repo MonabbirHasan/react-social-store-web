@@ -24,6 +24,7 @@ import Carousel from "react-multi-carousel";
 import { NavLink } from "react-router-dom";
 import "./home.css";
 import Footer from "../../components/common/footer/Footer";
+import "../../../assets/css/responsive.css";
 const Home = () => {
   /************************************************
    * REACT MULTISLIDER JSON DATA CODE HERE

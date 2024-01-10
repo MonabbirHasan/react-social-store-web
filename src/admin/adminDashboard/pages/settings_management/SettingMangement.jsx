@@ -3,6 +3,7 @@
 import React from "react";
 import "./settings_management.css";
 import { Col, Container, Row } from "react-bootstrap";
+import "../../../../assets/css/responsive.css";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import {
   Backup,

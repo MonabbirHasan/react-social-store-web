@@ -8,7 +8,7 @@ import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
 import about from "../../../assets/img/about.png";
 import { IconButton } from "@mui/material";
-// import "../../assets/css/media_query.css";
+import "../../../assets/css/responsive.css";
 import "./about.css";
 const About = () => {
   const FOUNDER_SOCIAL = (url) => {

@@ -14,7 +14,7 @@ import {
   Switch,
   Typography,
 } from "@mui/material";
-import React from "react";
+import "../../../../assets/css/responsive.css";
 import { Col, Container, Row } from "react-bootstrap";
 
 const Notification = () => {

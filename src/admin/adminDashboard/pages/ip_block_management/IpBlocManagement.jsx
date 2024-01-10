@@ -1,4 +1,3 @@
-import React from "react";
 import "./ip_block_management.css";
 import { Container, Form, InputGroup } from "react-bootstrap";
 import {
@@ -15,6 +14,7 @@ import {
   Paper,
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
 const IpBlocManagement = () => {
   return (
     <div className="ip_block_management">

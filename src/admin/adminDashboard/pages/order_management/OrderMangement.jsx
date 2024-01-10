@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import { useEffect } from "react";
 import "./order_management.css";
-import { Container, FloatingLabel, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import {
   Typography,
   Table,
@@ -10,11 +11,10 @@ import {
   TableHead,
   TableRow,
   Paper,
-  IconButton,
-  Box,
   Button,
 } from "@mui/material";
-import { Delete, Edit } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
+import { Delete } from "@mui/icons-material";
 import DataTable from "datatables.net-dt";
 const OrderMangement = () => {
   useEffect(() => {

@@ -25,6 +25,7 @@ import {
   LinkedIn,
 } from "@mui/icons-material";
 import { smm_data } from "../../../utils/smm_data";
+import "../../../assets/css/responsive.css";
 import "./smmpanel.css";
 const SmmPanel = () => {
   const [selectedPlatform, setSelectedPlatform] = useState("");

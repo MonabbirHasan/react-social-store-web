@@ -1,10 +1,7 @@
-import React from "react";
 import "./product_pin_request_managment.css";
-import { Container, FloatingLabel, Form } from "react-bootstrap";
+import { Container,  Form } from "react-bootstrap";
 import {
-  Avatar,
   Button,
-  IconButton,
   Paper,
   Table,
   TableBody,
@@ -14,7 +11,8 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Delete, Edit } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
+import { Delete } from "@mui/icons-material";
 const ProductPinRequestManagment = () => {
   return (
     <div className="product_pin_request_managment">

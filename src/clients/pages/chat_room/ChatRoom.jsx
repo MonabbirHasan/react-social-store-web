@@ -5,6 +5,7 @@ import { Discuss } from "react-loader-spinner";
 import { styled } from "@mui/material/styles";
 import { Form } from "react-bootstrap";
 import "./chat_room.css";
+import "../../../assets/css/responsive.css";
 import {
   ArrowCircleLeft,
   EmojiEmotions,

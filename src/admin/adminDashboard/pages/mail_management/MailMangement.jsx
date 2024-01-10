@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./mail_managment.css";
 import { Col, Container, Row } from "react-bootstrap";
 import mailboximg from "../../../../assets/img/mailbox_re_dvds.svg";
+import "../../../../assets/css/responsive.css";
 import {
   Box,
   Button,

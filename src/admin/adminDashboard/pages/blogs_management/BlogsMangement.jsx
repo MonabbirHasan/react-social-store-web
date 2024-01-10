@@ -1,8 +1,8 @@
-import React from "react";
 import "./blog_management.css";
 import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import "../../../../assets/css/responsive.css";
 import {
   Typography,
   Button as MuiButton,

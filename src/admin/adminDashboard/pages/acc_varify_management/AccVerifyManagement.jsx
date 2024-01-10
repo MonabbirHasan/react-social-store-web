@@ -1,10 +1,8 @@
-import React from "react";
 import "./acc_verify_management.css";
-import { Container, FloatingLabel, Form } from "react-bootstrap";
+import { Container,  Form } from "react-bootstrap";
 import {
   Avatar,
   Button,
-  IconButton,
   Paper,
   Table,
   TableBody,
@@ -14,7 +12,9 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Delete, Edit } from "@mui/icons-material";
+import { Delete,} from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
+
 const AccVerifyManagement = () => {
   return (
     <div className="acc_verify_management">

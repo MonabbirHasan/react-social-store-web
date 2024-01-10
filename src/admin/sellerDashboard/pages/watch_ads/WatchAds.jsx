@@ -5,6 +5,7 @@ import { Box, Typography, Button as MuiButton } from "@mui/material";
 import { ArrowLeft } from "@mui/icons-material";
 import { Spinner } from "react-bootstrap";
 import YouTube from "react-youtube";
+import "../../../../assets/css/responsive.css";
 import "./watchads.css";
 const WatchAds = (props) => {
   const [data, setData] = useState(false);

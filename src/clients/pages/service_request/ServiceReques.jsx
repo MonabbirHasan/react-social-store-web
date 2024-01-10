@@ -2,6 +2,7 @@
 import Header from "../../components/common/header/Header";
 import { Container } from "react-bootstrap";
 import "./service_request.css";
+import "../../../assets/css/responsive.css";
 import React from "react";
 import {
   Box,

@@ -1,10 +1,7 @@
-import React from "react";
 import "./contact_management.css";
-import { Container, FloatingLabel, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import {
-  Avatar,
   Button,
-  IconButton,
   Paper,
   Table,
   TableBody,
@@ -14,7 +11,8 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Delete, Edit } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
 const ContactMangement = () => {
   return (
     <div className="contact_management">
@@ -53,7 +51,9 @@ const ContactMangement = () => {
                     <TableCell align="right">jhone</TableCell>
                     <TableCell align="right">jhon@gmail.com</TableCell>
                     <TableCell align="right">+913242423</TableCell>
-                    <TableCell align="right">Lorem ipsum dolor sit amet.</TableCell>
+                    <TableCell align="right">
+                      Lorem ipsum dolor sit amet.
+                    </TableCell>
                     <TableCell align="right">active</TableCell>
                     <TableCell align="right">
                       <Button variant="contained" color="error">

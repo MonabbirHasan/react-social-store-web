@@ -1,5 +1,4 @@
-import React from 'react'
-
+import "../../../../assets/css/responsive.css";
 const PayoutHistoryMangement = () => {
   return (
     <div>PayoutHistoryMangement</div>

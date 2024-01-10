@@ -1,5 +1,4 @@
 import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
 import { Form } from "react-bootstrap";
 import "./parmission_management.css";
 const Parmission_switch = () => {

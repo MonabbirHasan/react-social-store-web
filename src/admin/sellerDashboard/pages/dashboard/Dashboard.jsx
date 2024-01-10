@@ -4,6 +4,7 @@ import ProductCard from "../../../../clients/components/product_cards/ProductCar
 import { Col, Container, Row } from "react-bootstrap";
 import { Search, Sort } from "@mui/icons-material";
 import "./dashboard.css";
+import "../../../../assets/css/responsive.css";
 import { BarChart, Bar, Cell, CartesianGrid } from "recharts";
 import {
   Box,

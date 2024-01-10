@@ -1,4 +1,3 @@
-import React from "react";
 import "./advertisement_management.css";
 import { FloatingLabel, Form, Container } from "react-bootstrap";
 import {
@@ -15,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
-
+import "../../../../assets/css/responsive.css";
 const AdvertisementManagments = () => {
   return (
     <div className="advertisement_management">

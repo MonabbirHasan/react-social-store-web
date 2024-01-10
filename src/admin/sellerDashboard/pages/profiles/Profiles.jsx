@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Row, Col, Container, Badge } from "react-bootstrap";
+import "../../../../assets/css/responsive.css";
 import {
   AdsClick,
   ArrowCircleRight,

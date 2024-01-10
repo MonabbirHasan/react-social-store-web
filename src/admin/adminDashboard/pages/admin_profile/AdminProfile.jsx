@@ -1,25 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import "./adminprofile.css";
 import Modal from "react-bootstrap/Modal";
 import { saveAs } from "file-saver";
+import "../../../../assets/css/responsive.css";
 import {
   Avatar,
   Box,
   Button,
   Container,
   IconButton,
-  Paper,
   Stack,
   Tab,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableFooter,
-  TableHead,
-  TableRow,
   Tabs,
-  TextField,
   Typography,
 } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -28,8 +20,6 @@ import {
   AccountCircleOutlined,
   Download,
   Folder,
-  FolderOutlined,
-  Home,
   Image,
   MessageRounded,
   Search,

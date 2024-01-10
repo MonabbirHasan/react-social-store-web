@@ -1,4 +1,3 @@
-import React from "react";
 import "./team_management.css";
 import { Container, FloatingLabel, Form } from "react-bootstrap";
 import {
@@ -14,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
-
+import "../../../../assets/css/responsive.css";
 const TeamMangement = () => {
   return (
     <div className="team_management">

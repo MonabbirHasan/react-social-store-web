@@ -203,9 +203,6 @@ const Header = (props) => {
                       <MenuItem disableGutters sx={{ p: 1 }}>
                         <Typography>Contact support</Typography>
                       </MenuItem>
-                      <MenuItem disableGutters sx={{ p: 1 }}>
-                        <Typography>Logout</Typography>
-                      </MenuItem>
                     </Box>
                   </Box>
                 </Popover>

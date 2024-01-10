@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, FloatingLabel, Form } from "react-bootstrap";
 import {
   Button,
@@ -13,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
 import "./blogcomment_managements.css";
 const BlogComments_management = () => {
   // CREATE TABLE UserComments (

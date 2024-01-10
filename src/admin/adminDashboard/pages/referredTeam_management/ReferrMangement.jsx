@@ -1,4 +1,3 @@
-import React from "react";
 import "./referred_team.css";
 import {
   IconButton,
@@ -12,6 +11,7 @@ import {
 } from "@mui/material";
 import { Container, Table } from "react-bootstrap";
 import { Delete, Edit } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
 const ReferrMangement = () => {
   return (
     <div className="referred_team">

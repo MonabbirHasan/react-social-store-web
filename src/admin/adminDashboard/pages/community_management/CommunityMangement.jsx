@@ -1,22 +1,9 @@
-import React from "react";
 import "./community_management.css";
-import {
-  Container,
-  FloatingLabel,
-  Col,
-  Form,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
+import { Container, FloatingLabel, Form } from "react-bootstrap";
+import "../../../../assets/css/responsive.css";
 import {
   Avatar,
-  Badge,
-  Box,
-  Divider,
   IconButton,
-  List,
-  ListItemButton,
-  Stack,
   Typography,
   Button,
   FormControl,
@@ -28,14 +15,7 @@ import {
   TableBody,
   TableContainer,
 } from "@mui/material";
-import {
-  Attachment,
-  Circle,
-  Delete,
-  Edit,
-  Photo,
-  Send,
-} from "@mui/icons-material";
+import { Delete, Edit } from "@mui/icons-material";
 const CommunityMangement = () => {
   return (
     <div className="community_management">

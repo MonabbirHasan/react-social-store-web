@@ -6,6 +6,7 @@ import { Box, Button, Fab, IconButton, Stack, Typography } from "@mui/material";
 import "./subscription.css";
 import { Add, ArrowCircleLeft, Check, CheckCircle } from "@mui/icons-material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "../../../../assets/css/responsive.css";
 const Subscription = (props) => {
   const subscription_plan = [
     {

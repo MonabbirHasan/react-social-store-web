@@ -6,6 +6,7 @@ import serviceimg from "../../../assets/img/service.png";
 import { serviceData } from "../../../utils/serviceData";
 import { NavLink } from "react-router-dom";
 import { Image } from "react-bootstrap";
+import "../../../assets/css/responsive.css";
 import "./service.css";
 const Service = () => {
   return (

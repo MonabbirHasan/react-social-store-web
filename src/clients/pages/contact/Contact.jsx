@@ -10,6 +10,7 @@ import Footer from "../../components/common/footer/Footer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import contact_us from "../../../assets/img/contact_us.jpg";
 import Form from "react-bootstrap/Form";
+import "../../../assets/css/responsive.css";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 const Contact = () => {

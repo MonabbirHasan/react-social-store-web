@@ -1,6 +1,5 @@
-import React from "react";
 import "./review_management.css";
-import { Container, Form, InputGroup } from "react-bootstrap";
+import { Container,} from "react-bootstrap";
 import {
   Typography,
   Table,
@@ -12,7 +11,6 @@ import {
   Paper,
   IconButton,
   Box,
-  Button,
   Stack,
   TextField,
   FormControl,
@@ -20,7 +18,8 @@ import {
   Select as MuiSelect,
   MenuItem,
 } from "@mui/material";
-import { Delete, Details, Edit, Star } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
+import { Delete, Details, Star } from "@mui/icons-material";
 const ReviewManagement = () => {
   return (
     <div className="review_management">

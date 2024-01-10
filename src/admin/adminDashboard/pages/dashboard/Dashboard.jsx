@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { FeatureCard, Statistics } from "../../components/";
 import { Col, Form, InputGroup, Row } from "react-bootstrap";
+import "../../../../assets/css/responsive.css";
 import "./dashboard.css";
 import {
   Box,

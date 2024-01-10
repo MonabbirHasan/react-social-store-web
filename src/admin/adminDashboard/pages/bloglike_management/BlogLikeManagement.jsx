@@ -1,4 +1,3 @@
-import React from "react";
 import "./bloglike_management.css";
 import { Container, FloatingLabel, Form } from "react-bootstrap";
 import {
@@ -14,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
+import "../../../../assets/css/responsive.css";
 const BlogLikeManagement = () => {
   return (
     <div className="bloglike_management">

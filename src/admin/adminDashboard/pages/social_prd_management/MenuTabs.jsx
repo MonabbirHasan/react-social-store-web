@@ -11,6 +11,7 @@ import {
   Service_Title,
 } from "./";
 import "./social_management.css";
+import "../../../../assets/css/responsive.css";
 const MenuTabs = () => {
   const [Tabsvalue, setTabsvalue] = useState(1);
   const handleChange = (event, newValue) => {
